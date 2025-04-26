@@ -24,12 +24,12 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(221, 83%, 53%)", // Blue-600
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#FF0000", // Bright Red
+          foreground: "#FFFFFF", // White
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#FF8C00", // Warm Orange
+          foreground: "#000000", // Black
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -37,11 +37,11 @@ module.exports = {
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          foreground: "#000000", // Black
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#F9D949", // Softer yellow (replacing #FFEB3B)
+          foreground: "#000000", // Black
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -50,6 +50,13 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        festive: {
+          red: "#FF0000", // Bright Red
+          orange: "#FF8C00", // Warm Orange
+          yellow: "#F9D949", // Softer, more muted yellow (replacing #FFEB3B)
+          white: "#FFFFFF", // White
+          black: "#000000", // Black
         },
       },
       borderRadius: {
@@ -71,8 +78,10 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        "festive-gradient": "linear-gradient(to right, #FF8C00, #FF0000)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
 }
-

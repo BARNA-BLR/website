@@ -40,11 +40,10 @@ export function ActiveLink({ href, className, children }: ActiveLinkProps) {
       href={href}
       className={cn(
         className,
-        isActive ? "text-primary" : "text-muted-foreground transition-colors hover:text-primary",
+        isActive ? "text-festive-red" : "text-festive-black transition-colors hover:text-festive-red",
       )}
     >
       {children}
     </Link>
   )
 }
-

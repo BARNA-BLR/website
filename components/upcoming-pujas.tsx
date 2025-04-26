@@ -61,9 +61,19 @@ export function UpcomingPujas() {
   return (
     <Tabs defaultValue="2024" className="w-full" onValueChange={setActiveTab}>
       <div className="flex justify-center mb-6">
-        <TabsList>
-          <TabsTrigger value="2024">2024</TabsTrigger>
-          <TabsTrigger value="2025">2025</TabsTrigger>
+        <TabsList className="bg-festive-yellow/10">
+          <TabsTrigger
+            value="2024"
+            className="data-[state=active]:bg-festive-red data-[state=active]:text-festive-white"
+          >
+            2024
+          </TabsTrigger>
+          <TabsTrigger
+            value="2025"
+            className="data-[state=active]:bg-festive-red data-[state=active]:text-festive-white"
+          >
+            2025
+          </TabsTrigger>
         </TabsList>
       </div>
 
@@ -71,38 +81,46 @@ export function UpcomingPujas() {
         <TabsContent key={year} value={year} className="mt-0">
           <div className="grid gap-6 md:grid-cols-2">
             {pujas.map((puja) => (
-              <Card key={puja.id} className="overflow-hidden">
-                <CardHeader className="bg-primary/10 pb-4">
-                  <CardTitle>{puja.title}</CardTitle>
-                  <CardDescription>
+              <Card key={puja.id} className="overflow-hidden border-festive-orange">
+                <CardHeader className="bg-festive-yellow/70 pb-4">
+                  <CardTitle className="text-festive-red">{puja.title}</CardTitle>
+                  <CardDescription className="text-festive-black">
                     <div className="flex items-center gap-2 mt-2">
-                      <Calendar className="h-4 w-4 text-primary" />
+                      <Calendar className="h-4 w-4 text-festive-red" />
                       <span>{puja.date}</span>
                     </div>
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-6">
+                <CardContent className="pt-6 bg-festive-white">
                   <div className="space-y-4">
                     <div className="flex items-start gap-2">
-                      <Clock className="h-4 w-4 text-primary mt-0.5" />
-                      <span>{puja.time}</span>
+                      <Clock className="h-4 w-4 text-festive-red mt-0.5" />
+                      <span className="text-festive-black">{puja.time}</span>
                     </div>
                     <div className="flex items-start gap-2">
-                      <MapPin className="h-4 w-4 text-primary mt-0.5" />
-                      <span>{puja.location}</span>
+                      <MapPin className="h-4 w-4 text-festive-red mt-0.5" />
+                      <span className="text-festive-black">{puja.location}</span>
                     </div>
-                    <p className="text-muted-foreground">{puja.description}</p>
+                    <p className="text-festive-black/70">{puja.description}</p>
                   </div>
                 </CardContent>
-                <CardFooter className="flex justify-between border-t p-4">
-                  <div className="text-sm text-muted-foreground">
+                <CardFooter className="flex justify-between border-t border-festive-orange p-4 bg-festive-white">
+                  <div className="text-sm text-festive-black/70">
                     {puja.registrationOpen ? (
                       <span className="text-green-600 font-medium">Registration Open</span>
                     ) : (
                       <span>Registration opens soon</span>
                     )}
                   </div>
-                  <Button variant={puja.registrationOpen ? "default" : "outline"} disabled={!puja.registrationOpen}>
+                  <Button
+                    variant={puja.registrationOpen ? "default" : "outline"}
+                    disabled={!puja.registrationOpen}
+                    className={
+                      puja.registrationOpen
+                        ? "bg-festive-red text-festive-white hover:bg-festive-red/90"
+                        : "border-festive-red text-festive-red hover:bg-festive-red/10"
+                    }
+                  >
                     {puja.registrationOpen ? "Register Now" : "Coming Soon"}
                   </Button>
                 </CardFooter>
@@ -114,4 +132,3 @@ export function UpcomingPujas() {
     </Tabs>
   )
 }
-

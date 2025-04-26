@@ -85,11 +85,11 @@ export function EventCarousel() {
             )}
           >
             <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <div className="absolute inset-0 bg-festive-gradient opacity-80" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-festive-white">
               <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
-              <p className="text-white/90 mb-2">{event.description}</p>
-              <p className="text-sm text-white/70">{event.date}</p>
+              <p className="text-festive-white mb-2">{event.description}</p>
+              <p className="text-sm text-festive-white/70">{event.date}</p>
             </div>
           </div>
         ))}
@@ -98,7 +98,7 @@ export function EventCarousel() {
       <Button
         variant="ghost"
         size="icon"
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 text-white hover:bg-black/50 z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-festive-red/50 text-festive-white hover:bg-festive-red/70 z-10"
         onClick={prevSlide}
       >
         <ChevronLeft className="h-6 w-6" />
@@ -108,7 +108,7 @@ export function EventCarousel() {
       <Button
         variant="ghost"
         size="icon"
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 text-white hover:bg-black/50 z-10"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-festive-red/50 text-festive-white hover:bg-festive-red/70 z-10"
         onClick={nextSlide}
       >
         <ChevronRight className="h-6 w-6" />
@@ -121,7 +121,7 @@ export function EventCarousel() {
             key={index}
             className={cn(
               "w-2 h-2 rounded-full transition-all",
-              index === currentIndex ? "bg-white w-4" : "bg-white/50",
+              index === currentIndex ? "bg-festive-yellow/80 w-4" : "bg-festive-white/50",
             )}
             onClick={() => goToSlide(index)}
           >
@@ -132,4 +132,3 @@ export function EventCarousel() {
     </div>
   )
 }
-
