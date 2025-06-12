@@ -1,573 +1,484 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { useState, useEffect } from "react"
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Youtube,
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
+  Users,
+  Award,
+  Heart,
+  Camera,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, DollarSign, Users } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-import { EventCarousel } from "@/components/event-carousel"
-import { UpcomingPujas } from "@/components/upcoming-pujas"
-import { DonationCard } from "@/components/donation-card"
-import { ActiveLink } from "@/components/active-link"
+export default function CulturalAssociationWebsite() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const images = [
+    { src: "/placeholder.svg?height=400&width=600", alt: "Cultural celebration 1" },
+    { src: "/placeholder.svg?height=400&width=600", alt: "Durga Puja festival" },
+    { src: "/placeholder.svg?height=400&width=600", alt: "Community gathering" },
+    { src: "/placeholder.svg?height=400&width=600", alt: "Traditional dance performance" },
+    { src: "/placeholder.svg?height=400&width=600", alt: "Bengali cultural event" },
+  ]
 
-export default function Home() {
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [images.length])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % images.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
+  }
+
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b bg-festive-white/95 backdrop-blur supports-[backdrop-filter]:bg-festive-white/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/placeholder.svg?height=40&width=40"
-              alt="BARNA Logo"
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
-            <span className="text-xl font-bold text-festive-red">BARNA</span>
+    <div className="min-h-screen bg-cream-50">
+      {/* Top Header Bar */}
+      <div className="bg-red-800 text-white py-2 px-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
+          <div className="flex items-center space-x-4">
+            <span>Welcome to Bengal Cultural Association</span>
           </div>
-          <nav className="hidden md:flex gap-6">
-            <ActiveLink href="/" className="text-sm font-medium">
-              Home
-            </ActiveLink>
-            <ActiveLink href="#about" className="text-sm font-medium">
-              About
-            </ActiveLink>
-            <ActiveLink href="#pujas" className="text-sm font-medium">
-              Pujas
-            </ActiveLink>
-            <ActiveLink href="#events" className="text-sm font-medium">
-              Events
-            </ActiveLink>
-            <ActiveLink href="#gallery" className="text-sm font-medium">
-              Gallery
-            </ActiveLink>
-            <ActiveLink href="#contact" className="text-sm font-medium">
-              Contact
-            </ActiveLink>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button size="sm" className="hidden md:flex bg-festive-red text-festive-white hover:bg-festive-red/90">
-              Donate
-            </Button>
-            <Button variant="ghost" size="icon" className="md:hidden text-festive-black">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-6 w-6"
-              >
-                <line x1="4" x2="20" y1="12" y2="12" />
-                <line x1="4" x2="20" y1="6" y2="6" />
-                <line x1="4" x2="20" y1="18" y2="18" />
-              </svg>
-            </Button>
+          <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
+              <Link href="#" className="hover:text-red-200 transition-colors">
+                <Facebook className="w-4 h-4" />
+              </Link>
+              <Link href="#" className="hover:text-red-200 transition-colors">
+                <Instagram className="w-4 h-4" />
+              </Link>
+              <Link href="#" className="hover:text-red-200 transition-colors">
+                <Twitter className="w-4 h-4" />
+              </Link>
+              <Link href="#" className="hover:text-red-200 transition-colors">
+                <Youtube className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-1">
+                <Mail className="w-4 h-4" />
+                <span>info@bengalcultural.org</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <Phone className="w-4 h-4" />
+                <span>(+91) 9876543210</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-20 h-20 bg-red-800 rounded-full flex items-center justify-center">
+                <div className="text-white text-center">
+                  <div className="text-xs font-bold">BCA</div>
+                  <div className="text-xs">2024</div>
+                </div>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">Bengal Cultural Association</h1>
+                <p className="text-red-700 font-medium">বাঙালি সাংস্কৃতিক সংস্থা</p>
+              </div>
+            </div>
+            <Button className="bg-red-800 hover:bg-red-900 text-white px-6 py-2">Membership</Button>
           </div>
         </div>
       </header>
-      <main className="flex-1">
-        <section className="relative">
-          <div className="absolute inset-0 bg-festive-gradient z-10 opacity-90" />
-          <Image
-            src="/placeholder.svg?height=800&width=1920"
-            alt="Durga Puja Celebration"
-            width={1920}
-            height={800}
-            className="w-full h-[70vh] object-cover"
-            priority
-          />
-          <div className="absolute inset-0 flex items-center z-20">
-            <div className="container">
-              <div className="max-w-2xl space-y-4">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-festive-white">
-                  Celebrate Durga Puja with BARNA
-                </h1>
-                <p className="text-lg text-festive-white">
-                  Join us in celebrating the divine feminine energy and the triumph of good over evil
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-festive-red hover:bg-festive-red/90 text-festive-white">
-                    Upcoming Events
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-festive-white text-festive-red border-festive-white hover:bg-festive-white/90"
-                  >
-                    Learn More
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section id="about" className="py-16 bg-festive-yellow/90">
-          <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight text-festive-red mb-6">About BARNA</h2>
-                <p className="text-festive-black mb-4">
-                  BARNA is a cultural organization dedicated to preserving and celebrating Hindu traditions through
-                  various pujas and community events.
-                </p>
-                <p className="text-festive-black mb-6">
-                  Founded with the vision of bringing together the community to honor our rich cultural heritage, BARNA
-                  has been organizing grand pujas for over a decade.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-festive-red" />
-                    <span className="text-festive-black">Established 2010</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="h-5 w-5 text-festive-red" />
-                    <span className="text-festive-black">500+ Members</span>
-                  </div>
-                </div>
-              </div>
-              <div className="relative h-[400px] rounded-lg overflow-hidden">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="BARNA Community"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+      {/* Navigation */}
+      <nav className="bg-red-800 text-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-center space-x-8">
+            <Link href="#" className="bg-red-900 px-4 py-3 text-sm font-medium">
+              Home
+            </Link>
+            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
+              About Us
+            </Link>
+            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
+              CSR
+            </Link>
+            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
+              Awards
+            </Link>
+            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
+              Timeline
+            </Link>
+            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
+              Past years
+            </Link>
           </div>
-        </section>
+        </div>
+      </nav>
 
-        <section id="pujas" className="py-16 bg-festive-white">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-festive-red mb-4">Our Pujas</h2>
-              <p className="text-festive-black max-w-2xl mx-auto">
-                We celebrate various pujas throughout the year, with Durga Puja being our grandest celebration
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-red-50 to-orange-50 py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="bg-red-100 text-red-800 mb-4">Celebrating Heritage Since 1985</Badge>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Preserving Bengali Culture & Traditions</h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Join our vibrant community celebrating Bengali culture through festivals, arts, literature, and social
+                activities. Experience the rich heritage of Bengal in the heart of the city.
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  title: "Durga Puja",
-                  description: "Celebrating the victory of Goddess Durga over the demon Mahishasura",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-                {
-                  title: "Kali Puja",
-                  description: "Honoring Goddess Kali, the destroyer of evil forces",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-                {
-                  title: "Saraswati Puja",
-                  description: "Worshipping the goddess of knowledge, music, and arts",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-                {
-                  title: "Lakshmi Puja",
-                  description: "Seeking blessings from the goddess of wealth and prosperity",
-                  image: "/placeholder.svg?height=300&width=400",
-                },
-              ].map((puja, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-lg">
-                  <div className="absolute inset-0 bg-festive-gradient opacity-80 group-hover:opacity-90 transition-opacity z-10" />
-                  <Image
-                    src={puja.image || "/placeholder.svg"}
-                    alt={puja.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-[250px] object-cover transition-transform group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
-                    <h3 className="text-xl font-bold text-festive-white mb-2">{puja.title}</h3>
-                    <p className="text-festive-white text-sm">{puja.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="events" className="py-16 bg-festive-yellow/90">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-festive-red mb-4">Past Events</h2>
-              <p className="text-festive-black max-w-2xl mx-auto">
-                Relive the memories of our past celebrations and cultural events
-              </p>
-            </div>
-            <EventCarousel />
-          </div>
-        </section>
-
-        <section id="upcoming" className="py-16 bg-festive-white">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-festive-red mb-4">Upcoming Pujas</h2>
-              <p className="text-festive-black max-w-2xl mx-auto">
-                Mark your calendars for these upcoming celebrations and join us in the festivities
-              </p>
-            </div>
-            <UpcomingPujas />
-          </div>
-        </section>
-
-        <section id="donate" className="py-16 bg-festive-gradient text-festive-white">
-          <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight mb-6">Support Our Celebrations</h2>
-                <p className="mb-4 text-festive-white">
-                  Your generous contributions help us organize grand pujas and cultural events for the community.
-                </p>
-                <p className="mb-6 text-festive-white">
-                  Every donation, big or small, makes a difference in preserving our traditions and bringing the
-                  community together.
-                </p>
-                <div className="flex items-center gap-2 mb-4">
-                  <DollarSign className="h-5 w-5 text-festive-white" />
-                  <span>100% of donations go towards community events</span>
-                </div>
+              <div className="flex space-x-4">
+                <Button className="bg-red-800 hover:bg-red-900">Join Our Community</Button>
+                <Button variant="outline" className="border-red-800 text-red-800 hover:bg-red-50">
+                  Upcoming Events
+                </Button>
               </div>
-              <DonationCard />
             </div>
-          </div>
-        </section>
-
-        <section id="gallery" className="py-16 bg-festive-yellow/90">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-festive-red mb-4">Gallery</h2>
-              <p className="text-festive-black max-w-2xl mx-auto">
-                Browse through the beautiful moments captured during our celebrations
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {Array.from({ length: 8 }).map((_, index) => (
-                <div key={index} className="relative h-[200px] rounded-lg overflow-hidden group">
-                  <Image
-                    src={`/placeholder.svg?height=200&width=300&text=Gallery+Image+${index + 1}`}
-                    alt={`Gallery image ${index + 1}`}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-8">
-              <Button variant="outline" className="border-festive-red text-festive-red hover:bg-festive-red/10">
-                View All Photos
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="py-16 bg-festive-white">
-          <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight text-festive-red mb-6">Contact Us</h2>
-                <p className="text-festive-black mb-6">
-                  Have questions about our pujas or want to get involved? Reach out to us!
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-full bg-festive-red/10 p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-5 w-5 text-festive-red"
-                      >
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-festive-black">Phone</h3>
-                      <p className="text-festive-black/70">(123) 456-7890</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-full bg-festive-red/10 p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-5 w-5 text-festive-red"
-                      >
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-festive-black">Email</h3>
-                      <p className="text-festive-black/70">info@barnaorganization.org</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="rounded-full bg-festive-red/10 p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-5 w-5 text-festive-red"
-                      >
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-festive-black">Address</h3>
-                      <p className="text-festive-black/70">123 Cultural Center, Community Ave, City, State 12345</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-festive-white p-6 rounded-lg shadow-sm border border-festive-orange">
-                <h3 className="text-xl font-bold mb-4 text-festive-red">Send us a message</h3>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-festive-black">
-                        Name
-                      </label>
-                      <input
-                        id="name"
-                        className="flex h-10 w-full rounded-md border border-festive-orange bg-festive-white px-3 py-2 text-sm text-festive-black ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-festive-black/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-festive-red focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="Your name"
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-lg shadow-lg group">
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {images.map((image, index) => (
+                    <div key={index} className="w-full flex-shrink-0">
+                      <Image
+                        src={image.src || "/placeholder.svg"}
+                        alt={image.alt}
+                        width={600}
+                        height={400}
+                        className="w-full h-[400px] object-cover"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-festive-black">
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        className="flex h-10 w-full rounded-md border border-festive-orange bg-festive-white px-3 py-2 text-sm text-festive-black ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-festive-black/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-festive-red focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        placeholder="Your email"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium text-festive-black">
-                      Subject
-                    </label>
-                    <input
-                      id="subject"
-                      className="flex h-10 w-full rounded-md border border-festive-orange bg-festive-white px-3 py-2 text-sm text-festive-black ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-festive-black/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-festive-red focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Message subject"
+                  ))}
+                </div>
+
+                {/* Navigation Buttons */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+
+                {/* Dots Indicator */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        index === currentSlide ? "bg-white" : "bg-white/50"
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-festive-black">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      className="flex min-h-[120px] w-full rounded-md border border-festive-orange bg-festive-white px-3 py-2 text-sm text-festive-black ring-offset-background placeholder:text-festive-black/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-festive-red focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Your message"
-                    />
-                  </div>
-                  <Button className="w-full bg-festive-red text-festive-white hover:bg-festive-red/90">
-                    Send Message
-                  </Button>
-                </form>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </section>
-      </main>
-      <footer className="bg-festive-gradient text-festive-white py-12">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">What We Offer</h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Discover the various ways we celebrate and preserve Bengali culture through our diverse programs and
+              activities.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Calendar className="w-12 h-12 text-red-800 mx-auto mb-4" />
+                <CardTitle className="text-xl">Cultural Events</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Durga Puja, Kali Puja, Poila Boishakh, and other traditional festivals celebrated with grandeur and
+                  authenticity.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Users className="w-12 h-12 text-red-800 mx-auto mb-4" />
+                <CardTitle className="text-xl">Community Programs</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Language classes, cultural workshops, and social gatherings that bring our community together.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Award className="w-12 h-12 text-red-800 mx-auto mb-4" />
+                <CardTitle className="text-xl">Arts & Literature</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Poetry recitations, drama performances, music concerts, and art exhibitions showcasing Bengali talent.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Heart className="w-12 h-12 text-red-800 mx-auto mb-4" />
+                <CardTitle className="text-xl">Social Welfare</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Community support programs, educational scholarships, and charitable initiatives for those in need.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Upcoming Events */}
+      <section className="py-16 bg-red-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h3>
+            <p className="text-lg text-gray-600">
+              Don't miss these exciting cultural celebrations and community gatherings.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <Badge className="bg-red-800 text-white">Festival</Badge>
+                  <span className="text-sm text-gray-500">Oct 15-19, 2024</span>
+                </div>
+                <CardTitle className="text-xl">Durga Puja 2024</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="mb-4">
+                  Join us for the grandest celebration of the year with traditional rituals, cultural programs, and
+                  community feast.
+                </CardDescription>
+                <div className="flex items-center text-sm text-gray-600">
+                  <MapPin className="w-4 h-4 mr-1" />
+                  Community Center, Main Hall
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <Badge className="bg-orange-600 text-white">Workshop</Badge>
+                  <span className="text-sm text-gray-500">Nov 5, 2024</span>
+                </div>
+                <CardTitle className="text-xl">Bengali Language Class</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="mb-4">
+                  Learn to read, write, and speak Bengali with our experienced instructors. All ages welcome.
+                </CardDescription>
+                <div className="flex items-center text-sm text-gray-600">
+                  <MapPin className="w-4 h-4 mr-1" />
+                  Education Wing, Room 201
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <Badge className="bg-green-600 text-white">Cultural</Badge>
+                  <span className="text-sm text-gray-500">Nov 12, 2024</span>
+                </div>
+                <CardTitle className="text-xl">Rabindra Sangeet Evening</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="mb-4">
+                  An evening dedicated to the timeless songs of Rabindranath Tagore performed by local artists.
+                </CardDescription>
+                <div className="flex items-center text-sm text-gray-600">
+                  <MapPin className="w-4 h-4 mr-1" />
+                  Auditorium, Main Stage
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Preview */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Moments from Our Community</h3>
+            <p className="text-lg text-gray-600">Capturing the joy and spirit of our cultural celebrations.</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+              <div key={i} className="relative group cursor-pointer">
                 <Image
-                  src="/placeholder.svg?height=40&width=40"
-                  alt="BARNA Logo"
-                  width={40}
-                  height={40}
-                  className="rounded-full bg-festive-white"
+                  src={`/placeholder.svg?height=200&width=200`}
+                  alt={`Gallery image ${i}`}
+                  width={200}
+                  height={200}
+                  className="w-full h-48 object-cover rounded-lg group-hover:opacity-75 transition-opacity"
                 />
-                <span className="text-xl font-bold">BARNA</span>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Camera className="w-8 h-8 text-white" />
+                </div>
               </div>
-              <p className="text-festive-white/90 mb-4">
-                Celebrating Hindu traditions and bringing the community together through cultural events.
-              </p>
-              <div className="flex gap-4">
-                <a href="#" className="text-festive-white hover:text-festive-yellow">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-festive-white hover:text-festive-yellow">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                  </svg>
-                </a>
-                <a href="#" className="text-festive-white hover:text-festive-yellow">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                  </svg>
-                </a>
-                <a href="#" className="text-festive-white hover:text-festive-yellow">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                    <rect width="4" height="12" x="2" y="9" />
-                    <circle cx="4" cy="4" r="2" />
-                  </svg>
-                </a>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Button variant="outline" className="border-red-800 text-red-800 hover:bg-red-50">
+              View Full Gallery
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-red-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h3 className="text-3xl font-bold mb-4">Become Part of Our Cultural Family</h3>
+          <p className="text-xl mb-8 text-red-100">
+            Join hundreds of families who celebrate Bengali heritage together. Experience the warmth of community and
+            the richness of our traditions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button className="bg-white text-red-800 hover:bg-red-50 px-8 py-3">Apply for Membership</Button>
+            <Button variant="outline" className="border-white text-white hover:bg-red-700 px-8 py-3">
+              Learn More About Us
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h4 className="text-lg font-bold mb-4">Bengal Cultural Association</h4>
+              <p className="text-gray-400 mb-4">Preserving and promoting Bengali culture and traditions since 1985.</p>
+              <div className="flex space-x-4">
+                <Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+                <Instagram className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+                <Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+                <Youtube className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
               </div>
             </div>
+
             <div>
-              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
+              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="/" className="text-festive-white/80 hover:text-festive-white">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#about" className="text-festive-white/80 hover:text-festive-white">
+                  <Link href="#" className="hover:text-white">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#pujas" className="text-festive-white/80 hover:text-festive-white">
-                    Pujas
+                  <Link href="#" className="hover:text-white">
+                    Membership
                   </Link>
                 </li>
                 <li>
-                  <Link href="#events" className="text-festive-white/80 hover:text-festive-white">
+                  <Link href="#" className="hover:text-white">
                     Events
                   </Link>
                 </li>
                 <li>
-                  <Link href="#gallery" className="text-festive-white/80 hover:text-festive-white">
+                  <Link href="#" className="hover:text-white">
                     Gallery
                   </Link>
                 </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-bold mb-4">Programs</h4>
+              <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="#contact" className="text-festive-white/80 hover:text-festive-white">
-                    Contact
+                  <Link href="#" className="hover:text-white">
+                    Cultural Events
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Language Classes
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Youth Programs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-white">
+                    Senior Activities
                   </Link>
                 </li>
               </ul>
             </div>
+
             <div>
-              <h3 className="text-lg font-bold mb-4">Pujas</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-festive-white/80 hover:text-festive-white">
-                    Durga Puja
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-festive-white/80 hover:text-festive-white">
-                    Kali Puja
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-festive-white/80 hover:text-festive-white">
-                    Saraswati Puja
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-festive-white/80 hover:text-festive-white">
-                    Lakshmi Puja
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Newsletter</h3>
-              <p className="text-festive-white/80 mb-4">
-                Subscribe to our newsletter to get updates on upcoming events and pujas.
-              </p>
-              <form className="space-y-2">
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="flex h-10 w-full rounded-md border border-festive-orange bg-festive-orange/20 px-3 py-2 text-sm text-festive-white placeholder:text-festive-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-festive-yellow/80 focus-visible:ring-offset-2 focus-visible:ring-offset-festive-red"
-                />
-                <Button className="w-full bg-festive-yellow text-festive-black hover:bg-festive-yellow/90">
-                  Subscribe
-                </Button>
-              </form>
+              <h4 className="text-lg font-bold mb-4">Contact Info</h4>
+              <div className="space-y-2 text-gray-400">
+                <div className="flex items-center">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  <span>123 Cultural Center St, City</span>
+                </div>
+                <div className="flex items-center">
+                  <Phone className="w-4 h-4 mr-2" />
+                  <span>(+91) 9876543210</span>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="w-4 h-4 mr-2" />
+                  <span>info@bengalcultural.org</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="border-t border-festive-orange/30 mt-8 pt-8 text-center text-festive-white/60">
-            <p>© {new Date().getFullYear()} BARNA. All rights reserved.</p>
+
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 Bengal Cultural Association. All rights reserved.</p>
           </div>
         </div>
       </footer>
