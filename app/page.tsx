@@ -50,6 +50,21 @@ export default function CulturalAssociationWebsite() {
 
   return (
     <div className="min-h-screen bg-cream-50">
+      {/* Announcement Banner */}
+      <div className="bg-yellow-400 text-black py-2 overflow-hidden">
+        <div className="whitespace-nowrap animate-marquee">
+          <span className="text-sm font-semibold mx-8">
+            🎉 Special Announcement: Durga Puja 2025 Registration Now Open! Limited Spots Available - Register Today!
+          </span>
+          <span className="text-sm font-semibold mx-8">
+            📅 Cultural Workshop Series Starting November 15th - Bengali Language, Dance & Music Classes
+          </span>
+          <span className="text-sm font-semibold mx-8">
+            🏆 Annual Awards Ceremony - December 20th, 2025 - Nominate Outstanding Community Members
+          </span>
+        </div>
+      </div>
+
       {/* Top Header Bar */}
       <div className="bg-red-800 text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
@@ -119,14 +134,17 @@ export default function CulturalAssociationWebsite() {
             <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
               CSR
             </Link>
-            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
-              Awards
+            <Link href="#rewards" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
+              Rewards & Recognition
             </Link>
             <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
               Timeline
             </Link>
             <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
               Past years
+            </Link>
+            <Link href="#gallery" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
+              Gallery
             </Link>
           </div>
         </div>
@@ -145,7 +163,7 @@ export default function CulturalAssociationWebsite() {
               </p>
               <div className="flex space-x-4">
                 <Button className="bg-red-800 hover:bg-red-900">Join Our Community</Button>
-                <Button variant="outline" className="border-red-800 text-red-800 hover:bg-red-50">
+                <Button variant="outline" className="border-red-800 text-red-800 hover:bg-red-50 bg-transparent">
                   Upcoming Events
                 </Button>
               </div>
@@ -341,35 +359,108 @@ export default function CulturalAssociationWebsite() {
         </div>
       </section>
 
-      {/* Gallery Preview */}
-      <section className="py-16 bg-white">
+      {/* Rewards & Recognition Section */}
+      <section id="rewards" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Moments from Our Community</h3>
-            <p className="text-lg text-gray-600">Capturing the joy and spirit of our cultural celebrations.</p>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Rewards & Recognition</h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Celebrating outstanding contributions to our community and Bengali culture preservation.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="relative group cursor-pointer">
-                <Image
-                  src={`/placeholder.svg?height=200&width=200`}
-                  alt={`Gallery image ${i}`}
-                  width={200}
-                  height={200}
-                  className="w-full h-48 object-cover rounded-lg group-hover:opacity-75 transition-opacity"
-                />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Camera className="w-8 h-8 text-white" />
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Award className="w-16 h-16 text-yellow-600 mx-auto mb-4" />
+                <CardTitle className="text-xl">Cultural Excellence Award</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Recognizing individuals who have made exceptional contributions to preserving and promoting Bengali
+                  arts and culture.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Users className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+                <CardTitle className="text-xl">Community Service Award</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Honoring volunteers and members who have dedicated their time and effort to community welfare and
+                  development.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <Heart className="w-16 h-16 text-red-600 mx-auto mb-4" />
+                <CardTitle className="text-xl">Youth Achievement Award</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Celebrating young talents who excel in academics, arts, sports, or community service while maintaining
+                  cultural values.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Community Gallery</h3>
+            <p className="text-lg text-gray-600">
+              Capturing precious moments from our cultural celebrations, festivals, and community events.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Durga Puja 2023", category: "Festival", images: 45 },
+              { title: "Rabindra Jayanti Celebration", category: "Cultural", images: 32 },
+              { title: "Bengali New Year", category: "Festival", images: 28 },
+              { title: "Youth Cultural Program", category: "Performance", images: 38 },
+              { title: "Community Picnic", category: "Social", images: 52 },
+              { title: "Language Workshop", category: "Educational", images: 24 },
+              { title: "Kali Puja 2023", category: "Festival", images: 41 },
+              { title: "Senior Citizens Meet", category: "Social", images: 19 },
+              { title: "Dance Competition", category: "Performance", images: 35 },
+            ].map((album, index) => (
+              <Card key={index} className="group cursor-pointer hover:shadow-lg transition-all duration-300">
+                <div className="relative overflow-hidden">
+                  <Image
+                    src={`/placeholder.svg?height=250&width=400`}
+                    alt={album.title}
+                    width={400}
+                    height={250}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <Camera className="w-12 h-12 text-white" />
+                  </div>
+                  <Badge className="absolute top-3 left-3 bg-red-800 text-white">{album.category}</Badge>
                 </div>
-              </div>
+                <CardHeader>
+                  <CardTitle className="text-lg">{album.title}</CardTitle>
+                  <CardDescription className="flex items-center text-sm text-gray-600">
+                    <Camera className="w-4 h-4 mr-1" />
+                    {album.images} photos
+                  </CardDescription>
+                </CardHeader>
+              </Card>
             ))}
           </div>
 
-          <div className="text-center mt-8">
-            <Button variant="outline" className="border-red-800 text-red-800 hover:bg-red-50">
-              View Full Gallery
-            </Button>
+          <div className="text-center mt-12">
+            <Button className="bg-red-800 hover:bg-red-900 text-white px-8 py-3">View All Albums</Button>
           </div>
         </div>
       </section>
@@ -384,7 +475,7 @@ export default function CulturalAssociationWebsite() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-white text-red-800 hover:bg-red-50 px-8 py-3">Apply for Membership</Button>
-            <Button variant="outline" className="border-white text-white hover:bg-red-700 px-8 py-3">
+            <Button variant="outline" className="border-white text-white hover:bg-red-700 px-8 py-3 bg-transparent">
               Learn More About Us
             </Button>
           </div>
@@ -425,7 +516,7 @@ export default function CulturalAssociationWebsite() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white">
+                  <Link href="#gallery" className="hover:text-white">
                     Gallery
                   </Link>
                 </li>
