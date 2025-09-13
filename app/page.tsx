@@ -4,26 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Youtube,
-  Mail,
-  Phone,
-  MapPin,
-  Calendar,
-  Users,
-  Award,
-  Heart,
-  Camera,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react"
+import { Calendar, Users, Award, Heart, Camera, ChevronLeft, ChevronRight, MapPin } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
+import { Header } from "@/components/shared/header"
+import { Navbar } from "@/components/shared/navbar"
+import { Footer } from "@/components/shared/footer"
 
-export default function CulturalAssociationWebsite() {
+export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const images = [
     { src: "/placeholder.svg?height=400&width=600", alt: "Cultural celebration 1" },
@@ -50,105 +37,8 @@ export default function CulturalAssociationWebsite() {
 
   return (
     <div className="min-h-screen bg-cream-50">
-      {/* Announcement Banner */}
-      <div className="bg-yellow-400 text-black py-2 overflow-hidden">
-        <div className="whitespace-nowrap animate-marquee">
-          <span className="text-sm font-semibold mx-8">
-            🎉 Special Announcement: Durga Puja 2025 Registration Now Open! Limited Spots Available - Register Today!
-          </span>
-          <span className="text-sm font-semibold mx-8">
-            📅 Cultural Workshop Series Starting November 15th - Bengali Language, Dance & Music Classes
-          </span>
-          <span className="text-sm font-semibold mx-8">
-            🏆 Annual Awards Ceremony - December 20th, 2025 - Nominate Outstanding Community Members
-          </span>
-        </div>
-      </div>
-
-      {/* Top Header Bar */}
-      <div className="bg-red-800 text-white py-2 px-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-4">
-            <span>Welcome to Bengal Cultural Association</span>
-          </div>
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-4">
-              <Link href="#" className="hover:text-red-200 transition-colors">
-                <Facebook className="w-4 h-4" />
-              </Link>
-              <Link href="#" className="hover:text-red-200 transition-colors">
-                <Instagram className="w-4 h-4" />
-              </Link>
-              <Link href="#" className="hover:text-red-200 transition-colors">
-                <Twitter className="w-4 h-4" />
-              </Link>
-              <Link href="#" className="hover:text-red-200 transition-colors">
-                <Youtube className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1">
-                <Mail className="w-4 h-4" />
-                <span>info@bengalcultural.org</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Phone className="w-4 h-4" />
-                <span>(+91) 9876543210</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="w-20 h-20 bg-red-800 rounded-full flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-xs font-bold">BCA</div>
-                  <div className="text-xs">2024</div>
-                </div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Bengal Cultural Association</h1>
-                <p className="text-red-700 font-medium">বাঙালি সাংস্কৃতিক সংস্থা</p>
-              </div>
-            </div>
-            <Button className="bg-red-800 hover:bg-red-900 text-white px-6 py-2">Membership</Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Navigation */}
-      <nav className="bg-red-800 text-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-center space-x-8">
-            <Link href="#" className="bg-red-900 px-4 py-3 text-sm font-medium">
-              Home
-            </Link>
-            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
-              About Us
-            </Link>
-            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
-              CSR
-            </Link>
-            <Link href="#rewards" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
-              Rewards & Recognition
-            </Link>
-            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
-              Timeline
-            </Link>
-            <Link href="#" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
-              Past years
-            </Link>
-            <Link href="#gallery" className="hover:bg-red-700 px-4 py-3 text-sm font-medium transition-colors">
-              Gallery
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Header />
+      <Navbar />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-red-50 to-orange-50 py-16">
@@ -159,7 +49,7 @@ export default function CulturalAssociationWebsite() {
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Preserving Bengali Culture & Traditions</h2>
               <p className="text-lg text-gray-600 mb-8">
                 Join our vibrant community celebrating Bengali culture through festivals, arts, literature, and social
-                activities. Experience the rich heritage of Bengal in the heart of the city.
+                activities. Experience the rich heritage of Bengal in the heart of the city with BARNA.
               </p>
               <div className="flex space-x-4">
                 <Button className="bg-red-800 hover:bg-red-900">Join Our Community</Button>
@@ -437,7 +327,7 @@ export default function CulturalAssociationWebsite() {
               <Card key={index} className="group cursor-pointer hover:shadow-lg transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <Image
-                    src={`/placeholder.svg?height=250&width=400`}
+                    src={`/ceholder-svg-height-250.jpg?height=250&width=400`}
                     alt={album.title}
                     width={400}
                     height={250}
@@ -470,8 +360,8 @@ export default function CulturalAssociationWebsite() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-3xl font-bold mb-4">Become Part of Our Cultural Family</h3>
           <p className="text-xl mb-8 text-red-100">
-            Join hundreds of families who celebrate Bengali heritage together. Experience the warmth of community and
-            the richness of our traditions.
+            Join hundreds of families who celebrate Bengali heritage together with BARNA. Experience the warmth of
+            community and the richness of our traditions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-white text-red-800 hover:bg-red-50 px-8 py-3">Apply for Membership</Button>
@@ -482,97 +372,7 @@ export default function CulturalAssociationWebsite() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h4 className="text-lg font-bold mb-4">Bengal Cultural Association</h4>
-              <p className="text-gray-400 mb-4">Preserving and promoting Bengali culture and traditions since 1985.</p>
-              <div className="flex space-x-4">
-                <Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-                <Instagram className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-                <Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-                <Youtube className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    Membership
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    Events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#gallery" className="hover:text-white">
-                    Gallery
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4">Programs</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    Cultural Events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    Language Classes
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    Youth Programs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white">
-                    Senior Activities
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-bold mb-4">Contact Info</h4>
-              <div className="space-y-2 text-gray-400">
-                <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>123 Cultural Center St, City</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span>(+91) 9876543210</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="w-4 h-4 mr-2" />
-                  <span>info@bengalcultural.org</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Bengal Cultural Association. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
