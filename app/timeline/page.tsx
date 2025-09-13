@@ -206,23 +206,23 @@ export default function TimelinePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-50 to-orange-50 py-16">
+      <section className="bg-gradient-to-r from-red-50 to-orange-50 py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
-            <Badge className="bg-red-100 text-red-800 mb-4">Current Festival Schedule</Badge>
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">{currentFestival.name}</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+            <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Current Festival Schedule</Badge>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">{currentFestival.name}</h1>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-4">
               Join us for five days of devotion, culture, and community celebration. Here's your complete guide to all
               the events and activities.
             </p>
-            <div className="flex justify-center items-center space-x-6 text-lg text-gray-700">
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-base sm:text-lg text-gray-700">
               <div className="flex items-center">
-                <Calendar className="w-5 h-5 mr-2 text-red-800" />
+                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-red-800" />
                 {currentFestival.dates}
               </div>
               <div className="flex items-center">
-                <MapPin className="w-5 h-5 mr-2 text-red-800" />
-                {currentFestival.location}
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-red-800" />
+                <span className="break-words">{currentFestival.location}</span>
               </div>
             </div>
           </div>
@@ -230,43 +230,47 @@ export default function TimelinePage() {
       </section>
 
       {/* Festival Schedule */}
-      <section className="py-16 bg-white">
+      <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {festivalSchedule.map((day, dayIndex) => (
               <div key={dayIndex} className="relative">
                 {/* Day Header */}
-                <div className="text-center mb-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">{day.title}</h2>
-                  <p className="text-lg text-red-800 font-medium">{day.day}</p>
+                <div className="text-center mb-6 sm:mb-8">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{day.title}</h2>
+                  <p className="text-base sm:text-lg text-red-800 font-medium">{day.day}</p>
                 </div>
 
                 {/* Events Timeline */}
                 <div className="relative">
-                  {/* Timeline Line */}
-                  <div className="absolute left-20 top-0 bottom-0 w-0.5 bg-red-200"></div>
+                  {/* Timeline Line - Hidden on mobile, visible on larger screens */}
+                  <div className="hidden sm:block absolute left-16 lg:left-20 top-0 bottom-0 w-0.5 bg-red-200"></div>
 
-                  <div className="space-y-8">
+                  <div className="space-y-6 sm:space-y-8">
                     {day.events.map((event, eventIndex) => (
-                      <div key={eventIndex} className="relative flex items-start">
-                        {/* Timeline Dot */}
-                        <div className="absolute left-[76px] w-3 h-3 bg-red-800 rounded-full border-2 border-white shadow-lg"></div>
+                      <div key={eventIndex} className="relative flex flex-col sm:flex-row sm:items-start">
+                        {/* Timeline Dot - Hidden on mobile */}
+                        <div className="hidden sm:block absolute left-[60px] lg:left-[76px] w-3 h-3 bg-red-800 rounded-full border-2 border-white shadow-lg"></div>
 
                         {/* Time */}
-                        <div className="w-16 flex-shrink-0 text-right">
-                          <span className="text-sm font-bold text-red-800">{event.time}</span>
+                        <div className="w-full sm:w-12 lg:w-16 flex-shrink-0 mb-2 sm:mb-0 sm:text-right">
+                          <span className="text-sm font-bold text-red-800 bg-red-50 px-2 py-1 rounded sm:bg-transparent sm:px-0 sm:py-0">
+                            {event.time}
+                          </span>
                         </div>
 
                         {/* Event Content */}
-                        <div className="ml-12 flex-1">
+                        <div className="sm:ml-8 lg:ml-12 flex-1">
                           <Card className="hover:shadow-lg transition-shadow">
                             <CardHeader className="pb-3">
                               <div className="flex items-start justify-between">
-                                <div className="flex items-center space-x-3">
-                                  <event.icon className="w-5 h-5 text-red-800 flex-shrink-0 mt-1" />
-                                  <div>
-                                    <CardTitle className="text-lg text-gray-900">{event.event}</CardTitle>
-                                    <CardDescription className="text-gray-600 mt-1">
+                                <div className="flex items-start space-x-3 min-w-0 flex-1">
+                                  <event.icon className="w-4 h-4 sm:w-5 sm:h-5 text-red-800 flex-shrink-0 mt-1" />
+                                  <div className="min-w-0 flex-1">
+                                    <CardTitle className="text-base sm:text-lg text-gray-900 break-words">
+                                      {event.event}
+                                    </CardTitle>
+                                    <CardDescription className="text-sm sm:text-base text-gray-600 mt-1 break-words">
                                       {event.description}
                                     </CardDescription>
                                   </div>
@@ -274,9 +278,9 @@ export default function TimelinePage() {
                               </div>
                             </CardHeader>
                             <CardContent className="pt-0">
-                              <div className="flex items-center text-sm text-gray-600">
-                                <MapPin className="w-4 h-4 mr-1" />
-                                {event.location}
+                              <div className="flex items-center text-xs sm:text-sm text-gray-600">
+                                <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
+                                <span className="break-words">{event.location}</span>
                               </div>
                             </CardContent>
                           </Card>
@@ -292,35 +296,35 @@ export default function TimelinePage() {
       </section>
 
       {/* Important Information */}
-      <section className="py-16 bg-red-50">
+      <section className="py-8 sm:py-12 lg:py-16 bg-red-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Important Information</h3>
-            <p className="text-lg text-gray-600">
+          <div className="text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Important Information</h3>
+            <p className="text-base sm:text-lg text-gray-600">
               Please note these important details for a smooth festival experience.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <Card className="text-center">
-              <CardHeader>
-                <Clock className="w-12 h-12 text-red-800 mx-auto mb-4" />
-                <CardTitle className="text-xl">Timings</CardTitle>
+              <CardHeader className="pb-4">
+                <Clock className="w-10 h-10 sm:w-12 sm:h-12 text-red-800 mx-auto mb-4" />
+                <CardTitle className="text-lg sm:text-xl">Timings</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
+                <CardDescription className="text-sm sm:text-base">
                   Pandal remains open from 6:00 AM to 10:00 PM daily. Special late hours on Ashtami until 11:00 PM.
                 </CardDescription>
               </CardContent>
             </Card>
 
             <Card className="text-center">
-              <CardHeader>
-                <Users className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <CardTitle className="text-xl">Volunteers</CardTitle>
+              <CardHeader className="pb-4">
+                <Users className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 mx-auto mb-4" />
+                <CardTitle className="text-lg sm:text-xl">Volunteers</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
+                <CardDescription className="text-sm sm:text-base">
                   Volunteer registration is open. Contact the organizing committee to help with various festival
                   activities.
                 </CardDescription>
@@ -328,12 +332,12 @@ export default function TimelinePage() {
             </Card>
 
             <Card className="text-center">
-              <CardHeader>
-                <Utensils className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <CardTitle className="text-xl">Food & Prasad</CardTitle>
+              <CardHeader className="pb-4">
+                <Utensils className="w-10 h-10 sm:w-12 sm:h-12 text-green-600 mx-auto mb-4" />
+                <CardTitle className="text-lg sm:text-xl">Food & Prasad</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
+                <CardDescription className="text-sm sm:text-base">
                   Free community meals available daily. Special prasad distribution after each puja ceremony.
                 </CardDescription>
               </CardContent>
