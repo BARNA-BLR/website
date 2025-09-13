@@ -341,27 +341,6 @@ export default function PastYearsPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-red-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-4">Share Your Memories</h3>
-          <p className="text-xl mb-8 text-red-100">
-            Do you have photos or memories from our past events? Help us build a comprehensive archive of BARNA's
-            community's beautiful journey by sharing your contributions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-red-800 hover:bg-red-50 px-8 py-3">
-              <Camera className="w-4 h-4 mr-2" />
-              Submit Photos
-            </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-red-700 px-8 py-3 bg-transparent">
-              <Download className="w-4 h-4 mr-2" />
-              Download Archive
-            </Button>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   )

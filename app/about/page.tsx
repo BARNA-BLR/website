@@ -155,55 +155,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Leadership Team</h3>
-            <p className="text-lg text-gray-600">
-              Meet the dedicated individuals who guide our organization and community initiatives.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { name: "Dr. Rajesh Chatterjee", position: "President", experience: "15 years in BARNA leadership" },
-              {
-                name: "Mrs. Priya Banerjee",
-                position: "Vice President",
-                experience: "BARNA cultural program coordinator",
-              },
-              { name: "Mr. Amit Ghosh", position: "Secretary", experience: "BARNA event management specialist" },
-              { name: "Mrs. Sunita Roy", position: "Treasurer", experience: "BARNA financial planning expert" },
-              {
-                name: "Dr. Kamal Bose",
-                position: "Cultural Director",
-                experience: "BARNA arts and literature advocate",
-              },
-              { name: "Ms. Ritu Sharma", position: "Youth Coordinator", experience: "BARNA youth program developer" },
-            ].map((member, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-24 h-24 bg-red-800 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold">
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </span>
-                  </div>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <CardDescription className="text-red-700 font-medium">{member.position}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{member.experience}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   )

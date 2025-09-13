@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Header() {
   return (
@@ -62,11 +63,14 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="w-20 h-20 bg-red-800 rounded-full flex items-center justify-center">
-                <div className="text-white text-center">
-                  <div className="text-xs font-bold">BARNA</div>
-                  <div className="text-xs">2024</div>
-                </div>
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-red-800 shadow-lg">
+                <Image
+                  src="/barna-logo.jpg"
+                  alt="BARNA Logo"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">BARNA</h1>
