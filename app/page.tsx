@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Celebrating Heritage Since 1985</Badge>
+              <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Celebrating Heritage Since 2020 </Badge>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Preserving Bengali Culture & Traditions
               </h2>

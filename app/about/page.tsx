@@ -16,7 +16,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-r from-red-50 to-orange-50 py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center">
-            <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Established 1985</Badge>
+            <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Established 2020</Badge>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">About BARNA</h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               For nearly four decades, we have been the cornerstone of Bengali culture preservation and community
@@ -34,7 +34,7 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Our Story</h2>
               <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-600">
                 <p>
-                  Founded in 1985 by a group of passionate Bengali immigrants, BARNA began as a small gathering of
+                  Founded in 2020 by a group of passionate Bengali immigrants, BARNA began as a small gathering of
                   families who wanted to preserve their rich cultural heritage while building a new life in their
                   adopted homeland.
                 </p>

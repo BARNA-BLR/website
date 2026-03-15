@@ -9,7 +9,7 @@ export function Footer() {
           <div className="text-center sm:text-left">
             <h4 className="text-lg font-bold mb-4">BARNA</h4>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">
-              Preserving and promoting Bengali culture and traditions since 1985.
+              Preserving and promoting Bengali culture and traditions since 2020.
             </p>
             <div className="flex justify-center sm:justify-start space-x-4">
               <Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
