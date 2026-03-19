@@ -9,70 +9,34 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 // Sample upcoming puja data
 const upcomingPujas = {
-  "2024": [
+  "2026": [
     {
-      id: 1,
-      title: "Durga Puja 2024",
-      date: "October 9-13, 2024",
+      id: 5,
+      title: "Durga Puja 2026",
+      date: "October 16-20, 2026",
       time: "6:00 AM - 10:00 PM",
-      location: "BARNA Cultural Center",
-      description:
-        "Join us for the grand celebration of Durga Puja with traditional rituals, cultural performances, and community feasts.",
-      registrationOpen: true,
-    },
-    {
-      id: 2,
-      title: "Kali Puja 2024",
-      date: "November 1, 2024",
-      time: "6:00 PM - 12:00 AM",
-      location: "BARNA Cultural Center",
+      location: "Billava Bhavan",
+...
+      location: "Billava Bhavan",
       description:
         "A night of devotion and celebration honoring Goddess Kali with traditional rituals and prasad distribution.",
-      registrationOpen: false,
-    },
-  ],
-  "2025": [
-    {
-      id: 3,
-      title: "Saraswati Puja 2025",
-      date: "February 4, 2025",
-      time: "8:00 AM - 8:00 PM",
-      location: "BARNA Cultural Center",
-      description:
-        "Celebrate the goddess of knowledge and arts with traditional rituals, cultural performances, and special programs for students.",
-      registrationOpen: false,
-    },
-    {
-      id: 4,
-      title: "Lakshmi Puja 2025",
-      date: "October 31, 2025",
-      time: "6:00 PM - 10:00 PM",
-      location: "BARNA Cultural Center",
-      description:
-        "Join us for Lakshmi Puja to seek blessings for prosperity and abundance with traditional rituals and prasad distribution.",
       registrationOpen: false,
     },
   ],
 }
 
 export function UpcomingPujas() {
-  const [activeTab, setActiveTab] = useState("2024")
+  const [activeTab, setActiveTab] = useState("2026")
 
   return (
-    <Tabs defaultValue="2024" className="w-full" onValueChange={setActiveTab}>
+    <Tabs defaultValue="2026" className="w-full" onValueChange={setActiveTab}>
       <div className="flex justify-center mb-6">
         <TabsList className="bg-festive-yellow/10">
           <TabsTrigger
-            value="2024"
+            value="2026"
             className="data-[state=active]:bg-festive-red data-[state=active]:text-festive-white"
           >
-            2024
-          </TabsTrigger>
-          <TabsTrigger
-            value="2025"
-            className="data-[state=active]:bg-festive-red data-[state=active]:text-festive-white"
-          >
-            2025
+            2026
           </TabsTrigger>
         </TabsList>
       </div>
@@ -97,10 +61,19 @@ export function UpcomingPujas() {
                       <Clock className="h-4 w-4 text-festive-red mt-0.5" />
                       <span className="text-festive-black">{puja.time}</span>
                     </div>
-                    <div className="flex items-start gap-2">
+                    <a
+                      href="https://maps.app.goo.gl/BstT6mPXVEPPjfWV6"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-2 text-festive-black hover:text-red-800 transition-colors"
+                    >
                       <MapPin className="h-4 w-4 text-festive-red mt-0.5" />
-                      <span className="text-festive-black">{puja.location}</span>
-                    </div>
+                      <span className="break-words">
+                        {puja.location}
+                        <br />
+                        <span className="text-xs text-gray-500">beside Narayana Nethralaya</span>
+                      </span>
+                    </a>
                     <p className="text-festive-black/70">{puja.description}</p>
                   </div>
                 </CardContent>

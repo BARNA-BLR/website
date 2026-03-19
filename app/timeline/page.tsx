@@ -8,192 +8,192 @@ import { Clock, MapPin, Users, Music, Utensils, Star, Calendar } from "lucide-re
 export default function TimelinePage() {
   // Current festival schedule - easily updatable for different festivals
   const currentFestival = {
-    name: "Durga Puja 2024",
-    dates: "October 15-19, 2024",
-    location: "BARNA Community Center",
+    name: "Durga Puja 2026",
+    dates: "October 16-20, 2026",
+    location: "Billava Bhavan",
   }
 
   const festivalSchedule = [
     {
-      day: "Day 1 - October 15, 2024",
+      day: "Day 1 - October 16, 2026",
       title: "Shashthi - Festival Inauguration",
       events: [
         {
           time: "6:00 AM",
           event: "Bodhon & Amantran",
           description: "Awakening of the Goddess and invitation ceremony",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "10:00 AM",
           event: "Shashthi Puja",
           description: "Traditional morning prayers and rituals",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "6:00 PM",
           event: "Evening Aarti",
           description: "Community evening prayers with dhak and conch",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Music,
         },
         {
           time: "7:30 PM",
           event: "Cultural Program",
           description: "Opening ceremony with traditional dance performances",
-          location: "Main Stage",
+          location: "Billava Bhavan",
           icon: Music,
         },
       ],
     },
     {
-      day: "Day 2 - October 16, 2024",
+      day: "Day 2 - October 17, 2026",
       title: "Saptami - Community Celebration",
       events: [
         {
           time: "7:00 AM",
           event: "Saptami Puja",
           description: "Morning rituals and prayers",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "12:00 PM",
           event: "Community Lunch",
           description: "Traditional Bengali feast for all attendees",
-          location: "Community Hall",
+          location: "Billava Bhavan",
           icon: Utensils,
         },
         {
           time: "4:00 PM",
           event: "Children's Program",
           description: "Cultural activities and competitions for kids",
-          location: "Youth Center",
+          location: "Billava Bhavan",
           icon: Users,
         },
         {
           time: "7:00 PM",
           event: "Rabindra Sangeet Evening",
           description: "Musical performances of Tagore's compositions",
-          location: "Main Stage",
+          location: "Billava Bhavan",
           icon: Music,
         },
       ],
     },
     {
-      day: "Day 3 - October 17, 2024",
+      day: "Day 3 - October 18, 2026",
       title: "Ashtami - Grand Celebration",
       events: [
         {
           time: "6:00 AM",
           event: "Ashtami Puja",
           description: "Most auspicious day prayers and rituals",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "11:00 AM",
           event: "Kumari Puja",
           description: "Worship of young girls as manifestation of Devi",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "1:00 PM",
           event: "Grand Feast",
           description: "Special community lunch with traditional dishes",
-          location: "Community Hall",
+          location: "Billava Bhavan",
           icon: Utensils,
         },
         {
           time: "6:00 PM",
           event: "Dhunuchi Dance",
           description: "Traditional incense dance competition",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Music,
         },
         {
           time: "8:00 PM",
           event: "Cultural Extravaganza",
           description: "Grand cultural program with guest artists",
-          location: "Main Stage",
+          location: "Billava Bhavan",
           icon: Music,
         },
       ],
     },
     {
-      day: "Day 4 - October 18, 2024",
+      day: "Day 4 - October 19, 2026",
       title: "Navami - Devotional Day",
       events: [
         {
           time: "7:00 AM",
           event: "Navami Puja",
           description: "Morning prayers and special rituals",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "10:00 AM",
           event: "Homa Yajna",
           description: "Sacred fire ceremony for blessings",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "2:00 PM",
           event: "Community Service",
           description: "Food distribution to underprivileged families",
-          location: "Community Outreach",
+          location: "Billava Bhavan",
           icon: Users,
         },
         {
           time: "7:00 PM",
           event: "Devotional Music",
           description: "Bhajans and devotional songs",
-          location: "Main Stage",
+          location: "Billava Bhavan",
           icon: Music,
         },
       ],
     },
     {
-      day: "Day 5 - October 19, 2024",
+      day: "Day 5 - October 20, 2026",
       title: "Dashami - Farewell Ceremony",
       events: [
         {
           time: "8:00 AM",
           event: "Dashami Puja",
           description: "Final day prayers and rituals",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Star,
         },
         {
           time: "11:00 AM",
           event: "Sindur Khela",
           description: "Traditional vermillion play by married women",
-          location: "Main Pandal",
+          location: "Billava Bhavan",
           icon: Users,
         },
         {
           time: "1:00 PM",
           event: "Final Community Feast",
           description: "Last meal together before immersion",
-          location: "Community Hall",
+          location: "Billava Bhavan",
           icon: Utensils,
         },
         {
           time: "4:00 PM",
           event: "Visarjan Procession",
           description: "Farewell procession to the immersion site",
-          location: "Procession Route",
+          location: "Billava Bhavan",
           icon: Users,
         },
         {
           time: "6:00 PM",
           event: "Immersion Ceremony",
           description: "Final farewell to Goddess Durga",
-          location: "River/Lake",
+          location: "Billava Bhavan",
           icon: Star,
         },
       ],
@@ -220,10 +220,19 @@ export default function TimelinePage() {
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-red-800" />
                 {currentFestival.dates}
               </div>
-              <div className="flex items-center">
+              <a
+                href="https://maps.app.goo.gl/BstT6mPXVEPPjfWV6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-sm text-gray-600 hover:text-red-800 transition-colors"
+              >
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-red-800" />
-                <span className="break-words">{currentFestival.location}</span>
-              </div>
+                <span className="break-words">
+                  {currentFestival.location}
+                  <br />
+                  <span className="text-xs text-gray-500">beside Narayana Nethralaya</span>
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -278,10 +287,19 @@ export default function TimelinePage() {
                               </div>
                             </CardHeader>
                             <CardContent className="pt-0">
-                              <div className="flex items-center text-xs sm:text-sm text-gray-600">
+                              <a
+                                href="https://maps.app.goo.gl/BstT6mPXVEPPjfWV6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center text-xs sm:text-sm text-gray-600 hover:text-red-800 transition-colors"
+                              >
                                 <MapPin className="w-3 h-3 sm:w-4 sm:h-4 mr-1 flex-shrink-0" />
-                                <span className="break-words">{event.location}</span>
-                              </div>
+                                <span className="break-words">
+                                  {event.location}
+                                  <br />
+                                  <span className="text-xs text-gray-500">beside Narayana Nethralaya</span>
+                                </span>
+                              </a>
                             </CardContent>
                           </Card>
                         </div>

@@ -19,7 +19,7 @@ export default function AboutPage() {
             <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Established 2020</Badge>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">About BARNA</h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              For nearly four decades, we have been the cornerstone of Bengali culture preservation and community
+              For several years, we have been the cornerstone of Bengali culture preservation and community
               building, fostering traditions that connect generations.
             </p>
           </div>

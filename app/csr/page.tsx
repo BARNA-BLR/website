@@ -141,9 +141,9 @@ export default function CSRPage() {
                 </Badge>
               </div>
               <CardHeader className="pb-3">
-                <CardTitle className="text-lg sm:text-xl">Annual Scholarship Program 2024</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Annual Scholarship Program 2026</CardTitle>
                 <CardDescription className="text-xs sm:text-sm text-gray-500">
-                  Completed - September 2024
+                  Completed - September 2026
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -173,7 +173,7 @@ export default function CSRPage() {
               </div>
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg sm:text-xl">Community Health Camp</CardTitle>
-                <CardDescription className="text-xs sm:text-sm text-gray-500">Completed - August 2024</CardDescription>
+                <CardDescription className="text-xs sm:text-sm text-gray-500">Completed - August 2026</CardDescription>
               </CardHeader>
               <CardContent>
                 <CardDescription className="mb-4 text-sm sm:text-base">
@@ -203,7 +203,7 @@ export default function CSRPage() {
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg sm:text-xl">Green Bengal Initiative</CardTitle>
                 <CardDescription className="text-xs sm:text-sm text-gray-500">
-                  Ongoing - Started July 2024
+                  Ongoing - Started July 2026
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -234,7 +234,7 @@ export default function CSRPage() {
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg sm:text-xl">Digital Literacy Program</CardTitle>
                 <CardDescription className="text-xs sm:text-sm text-gray-500">
-                  Ongoing - Started June 2024
+                  Ongoing - Started June 2026
                 </CardDescription>
               </CardHeader>
               <CardContent>

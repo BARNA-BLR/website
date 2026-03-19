@@ -15,13 +15,13 @@ export function Header() {
       <div className="bg-yellow-400 text-black py-2 overflow-hidden">
         <div className="whitespace-nowrap animate-marquee">
           <span className="text-xs sm:text-sm font-semibold mx-4 sm:mx-8">
-            🎉 Special Announcement: Durga Puja 2024 Registration Now Open! Limited Spots Available - Register Today!
+            🎉 Special Announcement: Durga Puja 2026 Registration Now Open! Limited Spots Available - Register Today!
           </span>
           <span className="text-xs sm:text-sm font-semibold mx-4 sm:mx-8">
             📅 Cultural Workshop Series Starting November 15th - Bengali Language, Dance & Music Classes
           </span>
           <span className="text-xs sm:text-sm font-semibold mx-4 sm:mx-8">
-            🏆 Annual Awards Ceremony - December 20th, 2024 - Nominate Outstanding Community Members
+            🏆 Annual Awards Ceremony - December 20th, 2026 - Nominate Outstanding Community Members
           </span>
         </div>
       </div>

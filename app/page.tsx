@@ -197,59 +197,90 @@ export default function HomePage() {
               <CardHeader className="pb-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                   <Badge className="bg-red-800 text-white w-fit">Festival</Badge>
-                  <span className="text-sm text-gray-500">Oct 15-19, 2024</span>
+                  <span className="text-sm text-gray-500">Oct 16-20, 2026</span>
                 </div>
-                <CardTitle className="text-lg sm:text-xl">Durga Puja 2024</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Durga Puja 2026</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="mb-4 text-sm sm:text-base">
                   Join us for the grandest celebration of the year with traditional rituals, cultural programs, and
                   community feast.
                 </CardDescription>
-                <div className="flex items-center text-sm text-gray-600">
+                <a
+                  href="https://maps.app.goo.gl/BstT6mPXVEPPjfWV6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm text-gray-600 hover:text-red-800 transition-colors"
+                >
                   <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
-                  <span className="break-words">Community Center, Main Hall</span>
-                </div>
+                  <span className="break-words">
+                    Billava Bhavan
+                    <br />
+                    <span className="text-xs text-gray-500">beside Narayana Nethralaya</span>
+                  </span>
+                </a>
               </CardContent>
             </Card>
 
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-                  <Badge className="bg-orange-600 text-white w-fit">Workshop</Badge>
-                  <span className="text-sm text-gray-500">Nov 5, 2024</span>
+                  <Badge className="bg-orange-600 text-white w-fit">Festival</Badge>
+                  <span className="text-sm text-gray-500">Nov 8, 2026</span>
                 </div>
-                <CardTitle className="text-lg sm:text-xl">Bengali Language Class</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Kali Puja 2026</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="mb-4 text-sm sm:text-base">
-                  Learn to read, write, and speak Bengali with our experienced instructors. All ages welcome.
+                  A night of devotion and celebration honoring Goddess Kali with traditional rituals and prasad distribution.
                 </CardDescription>
-                <div className="flex items-center text-sm text-gray-600">
+                <a
+                  href="https://maps.app.goo.gl/BstT6mPXVEPPjfWV6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm text-gray-600 hover:text-red-800 transition-colors"
+                >
                   <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
-                  <span className="break-words">Education Wing, Room 201</span>
-                </div>
+                  <span className="break-words">
+                    Billava Bhavan
+                    <br />
+                    <span className="text-xs text-gray-500">beside Narayana Nethralaya</span>
+                  </span>
+                </a>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
+            <Card className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-4">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-                  <Badge className="bg-green-600 text-white w-fit">Cultural</Badge>
-                  <span className="text-sm text-gray-500">Nov 12, 2024</span>
+                  <Badge className="bg-blue-600 text-white w-fit">Festival</Badge>
+                  <span className="text-sm text-gray-500">Jan 23, 2026</span>
                 </div>
-                <CardTitle className="text-lg sm:text-xl">Rabindra Sangeet Evening</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Saraswati Puja 2026</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="mb-4 text-sm sm:text-base">
-                  An evening dedicated to the timeless songs of Rabindranath Tagore performed by local artists.
+                  Celebrate the goddess of knowledge and arts with traditional rituals, cultural performances, and special programs for students.
                 </CardDescription>
-                <div className="flex items-center text-sm text-gray-600">
+                <a
+                  href="https://maps.app.goo.gl/BstT6mPXVEPPjfWV6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm text-gray-600 hover:text-red-800 transition-colors"
+                >
                   <MapPin className="w-4 h-4 mr-1 flex-shrink-0" />
-                  <span className="break-words">Auditorium, Main Stage</span>
-                </div>
+                  <span className="break-words">
+                    Billava Bhavan
+                    <br />
+                    <span className="text-xs text-gray-500">beside Narayana Nethralaya</span>
+                  </span>
+                </a>
               </CardContent>
             </Card>
+
+
+
+
           </div>
         </div>
       </section>
