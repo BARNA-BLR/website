@@ -14,28 +14,28 @@ const events = [
     title: "Durga Puja 2023",
     description: "A grand celebration of Durga Puja with cultural performances and traditional rituals",
     date: "October 2023",
-    image: "/placeholder.svg?height=500&width=800&text=Durga+Puja+2023",
+    image: "/images/durga_puja_hero.jpg",
   },
   {
     id: 2,
     title: "Saraswati Puja 2023",
     description: "Celebrating the goddess of knowledge and arts with music and dance performances",
     date: "February 2023",
-    image: "/placeholder.svg?height=500&width=800&text=Saraswati+Puja+2023",
+    image: "/images/saraswati_puja.jpg",
   },
   {
     id: 3,
     title: "Kali Puja 2022",
     description: "A night of devotion and celebration honoring Goddess Kali",
     date: "November 2022",
-    image: "/placeholder.svg?height=500&width=800&text=Kali+Puja+2022",
+    image: "/images/kali_puja.jpg",
   },
   {
     id: 4,
     title: "Lakshmi Puja 2022",
     description: "A beautiful celebration seeking blessings for prosperity and abundance",
     date: "October 2022",
-    image: "/placeholder.svg?height=500&width=800&text=Lakshmi+Puja+2022",
+    image: "/images/community_gathering.jpg",
   },
 ]
 
@@ -84,7 +84,7 @@ export function EventCarousel() {
               index === currentIndex ? "opacity-100" : "opacity-0 pointer-events-none",
             )}
           >
-            <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+            <Image src={event.image || "/placeholder.svg"} alt={event.title} fill loading="lazy" className="object-cover" />
             <div className="absolute inset-0 bg-festive-gradient opacity-80" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-festive-white">
               <h3 className="text-2xl font-bold mb-2">{event.title}</h3>

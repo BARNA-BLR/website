@@ -13,11 +13,11 @@ import { Footer } from "@/components/shared/footer"
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const images = [
-    { src: "/placeholder.svg?height=400&width=600", alt: "Cultural celebration 1" },
-    { src: "/placeholder.svg?height=400&width=600", alt: "Durga Puja festival" },
-    { src: "/placeholder.svg?height=400&width=600", alt: "Community gathering" },
-    { src: "/placeholder.svg?height=400&width=600", alt: "Traditional dance performance" },
-    { src: "/placeholder.svg?height=400&width=600", alt: "Bengali cultural event" },
+    { src: "/images/durga_puja_hero.jpg", alt: "Durga Puja festival" },
+    { src: "/images/community_gathering.jpg", alt: "Community gathering" },
+    { src: "/images/cultural_performance.jpg", alt: "Traditional dance performance" },
+    { src: "/images/saraswati_puja.jpg", alt: "Saraswati Puja" },
+    { src: "/images/kali_puja.jpg", alt: "Kali Puja celebration" },
   ]
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="text-center lg:text-left order-2 lg:order-1">
-              <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Celebrating Heritage Since 2020 </Badge>
+              <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Celebrating Heritage Since 1985 </Badge>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Preserving Bengali Culture & Traditions
               </h2>
@@ -350,23 +350,24 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
-              { title: "Durga Puja 2023", category: "Festival", images: 45 },
-              { title: "Rabindra Jayanti Celebration", category: "Cultural", images: 32 },
-              { title: "Bengali New Year", category: "Festival", images: 28 },
-              { title: "Youth Cultural Program", category: "Performance", images: 38 },
-              { title: "Community Picnic", category: "Social", images: 52 },
-              { title: "Language Workshop", category: "Educational", images: 24 },
-              { title: "Kali Puja 2023", category: "Festival", images: 41 },
-              { title: "Senior Citizens Meet", category: "Social", images: 19 },
-              { title: "Dance Competition", category: "Performance", images: 35 },
+              { title: "Durga Puja 2023", category: "Festival", images: 45, src: "/images/durga_puja_hero.jpg" },
+              { title: "Rabindra Jayanti Celebration", category: "Cultural", images: 32, src: "/images/cultural_performance.jpg" },
+              { title: "Bengali New Year", category: "Festival", images: 28, src: "/images/community_gathering.jpg" },
+              { title: "Youth Cultural Program", category: "Performance", images: 38, src: "/images/cultural_performance.jpg" },
+              { title: "Community Picnic", category: "Social", images: 52, src: "/images/community_gathering.jpg" },
+              { title: "Language Workshop", category: "Educational", images: 24, src: "/images/saraswati_puja.jpg" },
+              { title: "Kali Puja 2023", category: "Festival", images: 41, src: "/images/kali_puja.jpg" },
+              { title: "Senior Citizens Meet", category: "Social", images: 19, src: "/images/community_gathering.jpg" },
+              { title: "Dance Competition", category: "Performance", images: 35, src: "/images/cultural_performance.jpg" },
             ].map((album, index) => (
               <Card key={index} className="group cursor-pointer hover:shadow-lg transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <Image
-                    src={`/ceholder-svg-height-250.jpg?height=250&width=400`}
+                    src={album.src}
                     alt={album.title}
                     width={400}
                     height={250}
+                    loading="lazy"
                     className="w-full h-36 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

@@ -16,7 +16,15 @@ const upcomingPujas = {
       date: "October 16-20, 2026",
       time: "6:00 AM - 10:00 PM",
       location: "Billava Bhavan",
-...
+      description:
+        "Join us for the grandest celebration of the year with traditional rituals, cultural programs, and community bhog.",
+      registrationOpen: true,
+    },
+    {
+      id: 6,
+      title: "Kali Puja 2026",
+      date: "November 8, 2026",
+      time: "5:00 PM - 12:00 AM",
       location: "Billava Bhavan",
       description:
         "A night of devotion and celebration honoring Goddess Kali with traditional rituals and prasad distribution.",

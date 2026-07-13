@@ -9,13 +9,21 @@ export function Footer() {
           <div className="w-full">
             <h4 className="text-lg font-bold mb-4">BARNA</h4>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">
-              Preserving and promoting Bengali culture and traditions since 2020.
+              Preserving and promoting Bengali culture and traditions since 1985.
             </p>
             <div className="flex justify-center space-x-4">
-              <Facebook className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Instagram className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Youtube className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+              <Link href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                <Facebook className="w-5 h-5 cursor-pointer" />
+              </Link>
+              <Link href="https://instagram.com" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                <Instagram className="w-5 h-5 cursor-pointer" />
+              </Link>
+              <Link href="https://twitter.com" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter className="w-5 h-5 cursor-pointer" />
+              </Link>
+              <Link href="https://youtube.com" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                <Youtube className="w-5 h-5 cursor-pointer" />
+              </Link>
             </div>
           </div>
 
@@ -28,13 +36,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition-colors">
+                <Link href="/membership" className="hover:text-white transition-colors">
                   Membership
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Events
+                <Link href="/timeline" className="hover:text-white transition-colors">
+                  Timeline
                 </Link>
               </li>
               <li>
@@ -50,11 +58,11 @@ export function Footer() {
             <div className="space-y-2 text-gray-400 text-sm sm:text-base">
               <div className="flex items-center justify-center">
                 <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
-                <span className="break-words">123 Cultural Center St, City</span>
+                <span className="break-words">Billava Bhavan, Miller Road, Vasanth Nagar, Bengaluru - 560052</span>
               </div>
               <div className="flex items-center justify-center">
                 <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
-                <span>(+91) 9876543210</span>
+                <span>+91 80 4567 8901</span>
               </div>
               <div className="flex items-center justify-center">
                 <Mail className="w-4 h-4 mr-2 flex-shrink-0" />
@@ -65,7 +73,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
-          <p>&copy; 2026 BARNA. All rights reserved.</p>
+          <p>&copy; 1985 - 2026 BARNA. All rights reserved.</p>
         </div>
       </div>
     </footer>

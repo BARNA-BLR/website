@@ -130,10 +130,11 @@ export default function CSRPage() {
             <Card className="hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=250&width=400"
+                  src="/images/csr_activity.jpg"
                   alt="Education scholarship program"
                   width={400}
                   height={250}
+                  loading="lazy"
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
                 <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-blue-600 text-white text-xs sm:text-sm">
@@ -148,12 +149,12 @@ export default function CSRPage() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="mb-4 text-sm sm:text-base">
-                  Awarded scholarships worth $50,000 to 25 deserving students from underprivileged families, covering
+                  Awarded scholarships worth ₹5,00,000 to 25 deserving students from underprivileged families, covering
                   tuition fees, books, and educational materials for the academic year.
                 </CardDescription>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <span>Impact: 25 students supported</span>
-                  <span>Investment: $50,000</span>
+                  <span>Investment: ₹5,00,000</span>
                 </div>
               </CardContent>
             </Card>
@@ -161,10 +162,11 @@ export default function CSRPage() {
             <Card className="hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=250&width=400"
+                  src="/images/csr_activity.jpg"
                   alt="Health camp initiative"
                   width={400}
                   height={250}
+                  loading="lazy"
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
                 <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-red-600 text-white text-xs sm:text-sm">
@@ -182,7 +184,7 @@ export default function CSRPage() {
                 </CardDescription>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <span>Impact: 300+ people served</span>
-                  <span>Investment: $15,000</span>
+                  <span>Investment: ₹1,50,000</span>
                 </div>
               </CardContent>
             </Card>
@@ -190,10 +192,11 @@ export default function CSRPage() {
             <Card className="hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=250&width=400"
+                  src="/images/csr_activity.jpg"
                   alt="Tree plantation drive"
                   width={400}
                   height={250}
+                  loading="lazy"
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
                 <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-green-600 text-white text-xs sm:text-sm">
@@ -213,7 +216,7 @@ export default function CSRPage() {
                 </CardDescription>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <span>Impact: 1,000 trees planted</span>
-                  <span>Investment: $8,000</span>
+                  <span>Investment: ₹80,000</span>
                 </div>
               </CardContent>
             </Card>
@@ -221,10 +224,11 @@ export default function CSRPage() {
             <Card className="hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=250&width=400"
+                  src="/images/csr_activity.jpg"
                   alt="Skill development workshop"
                   width={400}
                   height={250}
+                  loading="lazy"
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
                 <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-indigo-600 text-white text-xs sm:text-sm">
@@ -244,7 +248,7 @@ export default function CSRPage() {
                 </CardDescription>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 text-xs sm:text-sm text-gray-600">
                   <span>Impact: 80 participants</span>
-                  <span>Investment: $12,000</span>
+                  <span>Investment: ₹1,20,000</span>
                 </div>
               </CardContent>
             </Card>
@@ -264,9 +268,9 @@ export default function CSRPage() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-red-800 mb-2">$250K+</div>
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-red-800 mb-2">₹25 Lakhs+</div>
               <div className="text-sm sm:text-base lg:text-lg text-gray-600">Total CSR Investment</div>
-              <div className="text-xs sm:text-sm text-gray-500">Since 2020</div>
+              <div className="text-xs sm:text-sm text-gray-500">Since 1985</div>
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-2">150+</div>

@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 export function DonationCard() {
-  const [donationAmount, setDonationAmount] = useState<string>("100")
+  const [donationAmount, setDonationAmount] = useState<string>("1000")
   const [customAmount, setCustomAmount] = useState<string>("")
 
   const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +37,7 @@ export function DonationCard() {
             onValueChange={setDonationAmount}
             className="grid grid-cols-3 gap-4"
           >
-            {["50", "100", "250", "500", "1000", "custom"].map((amount) => (
+            {["500", "1000", "2500", "5000", "10000", "custom"].map((amount) => (
               <div key={amount}>
                 <RadioGroupItem value={amount} id={`amount-${amount}`} className="peer sr-only" />
                 <Label
@@ -48,8 +48,8 @@ export function DonationCard() {
                     <span className="text-sm font-medium">Custom</span>
                   ) : (
                     <>
-                      <span className="text-sm font-medium">${amount}</span>
-                      {amount === "100" && (
+                      <span className="text-sm font-medium">₹{amount}</span>
+                      {amount === "1000" && (
                         <span className="flex items-center text-xs mt-1 text-festive-red">
                           <Check className="h-3 w-3 mr-1" /> Popular
                         </span>
@@ -68,7 +68,7 @@ export function DonationCard() {
               Custom Amount
             </Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-festive-black">$</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-festive-black">₹</span>
               <Input
                 id="custom-amount"
                 type="number"

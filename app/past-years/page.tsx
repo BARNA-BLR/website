@@ -117,6 +117,21 @@ export default function PastYearsPage() {
     return colors[category as keyof typeof colors] || "bg-gray-100 text-gray-800"
   }
 
+  const getEventImage = (category: string, title: string) => {
+    if (category === "Festival") {
+      if (title.toLowerCase().includes("kali")) return "/images/kali_puja.jpg"
+      if (title.toLowerCase().includes("saraswati")) return "/images/saraswati_puja.jpg"
+      return "/images/durga_puja_hero.jpg"
+    }
+    if (category === "Welfare") {
+      return "/images/csr_activity.jpg"
+    }
+    if (category === "Cultural") {
+      return "/images/cultural_performance.jpg"
+    }
+    return "/images/community_gathering.jpg"
+  }
+
   return (
     <div className="min-h-screen bg-cream-50">
       <Header />
@@ -176,10 +191,11 @@ export default function PastYearsPage() {
               <Card key={index} className="hover:shadow-lg transition-all duration-300 group">
                 <div className="relative overflow-hidden">
                   <Image
-                    src={`/ceholder-svg-height-250.jpg?height=250&width=400`}
+                    src={getEventImage(event.category, event.title)}
                     alt={event.title}
                     width={400}
                     height={250}
+                    loading="lazy"
                     className="w-full h-36 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -301,10 +317,11 @@ export default function PastYearsPage() {
             <Card className="hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=300&width=500"
+                  src="/images/durga_puja_hero.jpg"
                   alt="Historic moment"
                   width={500}
                   height={300}
+                  loading="lazy"
                   className="w-full h-48 sm:h-64 object-cover rounded-t-lg"
                 />
                 <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-yellow-600 text-white text-xs">
@@ -332,10 +349,11 @@ export default function PastYearsPage() {
             <Card className="hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=300&width=500"
+                  src="/images/cultural_performance.jpg"
                   alt="Community achievement"
                   width={500}
                   height={300}
+                  loading="lazy"
                   className="w-full h-48 sm:h-64 object-cover rounded-t-lg"
                 />
                 <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-gold-600 text-white text-xs">
