@@ -13,7 +13,7 @@ const hindSiliguri = Hind_Siliguri({
 
 export const metadata: Metadata = {
   title: 'BARNA - Bengali Association for Recreation and Nourishment of Arts',
-  description: 'BARNA (বার্না সাংস্কৃতিক সংস্থা) is a vibrant community organization celebrating and preserving Bengali culture, arts, literature, traditions, and community welfare.',
+  description: 'BARNA (বর্ণা সাংস্কৃতিক সংস্থা) is a vibrant community organization celebrating and preserving Bengali culture, arts, literature, traditions, and community welfare.',
 }
 
 export default function RootLayout({

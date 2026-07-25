@@ -93,7 +93,7 @@ export function Header() {
               </div>
               <div className="min-w-0">
                 <h1 className="text-xl sm:text-2xl font-bold text-gray-900 truncate">BARNA</h1>
-                <p className="text-red-700 font-medium text-sm sm:text-base truncate">বার্না সাংস্কৃতিক সংস্থা</p>
+                <p className="text-red-700 font-medium text-sm sm:text-base truncate">বর্ণা সাংস্কৃতিক সংস্থা</p>
               </div>
             </Link>
 
