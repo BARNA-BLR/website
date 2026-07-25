@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
-import { Calendar, Users, Award, Heart, Camera, ChevronLeft, ChevronRight, MapPin } from "lucide-react"
+import { Calendar, Users, Award, Heart, ChevronLeft, ChevronRight, MapPin } from "lucide-react"
 import Image from "next/image"
 import { Header } from "@/components/shared/header"
 import { Navbar } from "@/components/shared/navbar"
@@ -21,17 +21,22 @@ export default function HomePage() {
     { src: "/images/kali_puja.jpg", alt: "Kali Puja celebration" },
   ]
 
-  const albums = [
-    { title: "Durga Puja 2023", category: "Festival", images: 45, src: "/images/durga_puja_hero.jpg" },
-    { title: "Rabindra Jayanti Celebration", category: "Cultural", images: 32, src: "/images/cultural_performance.jpg" },
-    { title: "Bengali New Year", category: "Festival", images: 28, src: "/images/community_gathering.jpg" },
-    { title: "Youth Cultural Program", category: "Performance", images: 38, src: "/images/cultural_performance.jpg" },
-    { title: "Community Picnic", category: "Social", images: 52, src: "/images/community_gathering.jpg" },
-    { title: "Language Workshop", category: "Educational", images: 24, src: "/images/saraswati_puja.jpg" },
-    { title: "Kali Puja 2023", category: "Festival", images: 41, src: "/images/kali_puja.jpg" },
-    { title: "Senior Citizens Meet", category: "Social", images: 19, src: "/images/community_gathering.jpg" },
-    { title: "Dance Competition", category: "Performance", images: 35, src: "/images/cultural_performance.jpg" },
+  const galleryImages = [
+    { src: "/images/durga_puja_hero.jpg", alt: "Durga Puja 2023" },
+    { src: "/images/cultural_performance.jpg", alt: "Rabindra Jayanti Celebration" },
+    { src: "/images/community_gathering.jpg", alt: "Bengali New Year" },
+    { src: "/images/cultural_performance.jpg", alt: "Youth Cultural Program" },
+    { src: "/images/community_gathering.jpg", alt: "Community Picnic" },
+    { src: "/images/saraswati_puja.jpg", alt: "Language Workshop" },
+    { src: "/images/kali_puja.jpg", alt: "Kali Puja 2023" },
+    { src: "/images/community_gathering.jpg", alt: "Senior Citizens Meet" },
+    { src: "/images/cultural_performance.jpg", alt: "Dance Competition" },
   ]
+
+  const galleryPages = Array.from(
+    { length: Math.ceil(galleryImages.length / 3) },
+    (_, i) => galleryImages.slice(i * 3, i * 3 + 3)
+  )
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -49,11 +54,11 @@ export default function HomePage() {
   }
 
   const nextGallery = () => {
-    setGalleryIndex((prev) => (prev + 1) % albums.length)
+    setGalleryIndex((prev) => (prev + 1) % galleryPages.length)
   }
 
   const prevGallery = () => {
-    setGalleryIndex((prev) => (prev - 1 + albums.length) % albums.length)
+    setGalleryIndex((prev) => (prev - 1 + galleryPages.length) % galleryPages.length)
   }
 
   return (
@@ -370,61 +375,61 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="relative flex items-center px-8 sm:px-12">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={prevGallery}
-              className="absolute left-0 z-10 rounded-full border-red-800 text-red-800 hover:bg-red-50 bg-white"
-              aria-label="Previous gallery"
+          <div className="relative overflow-hidden rounded-lg shadow-lg group">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${galleryIndex * 100}%)` }}
             >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-
-            <div className="w-full overflow-hidden">
-              <div className="grid grid-cols-3 gap-2 sm:gap-6">
-                {[0, 1, 2].map((offset) => {
-                  const album = albums[(galleryIndex + offset) % albums.length]
-                  return (
-                    <Card key={album.title} className="group cursor-pointer hover:shadow-lg transition-all duration-300">
-                      <div className="relative overflow-hidden">
+              {galleryPages.map((page, pageIndex) => (
+                <div key={pageIndex} className="w-full flex-shrink-0">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                    {page.map((img, index) => (
+                      <div key={index} className="relative overflow-hidden rounded-lg">
                         <Image
-                          src={album.src}
-                          alt={album.title}
+                          src={img.src}
+                          alt={img.alt}
                           width={400}
-                          height={250}
+                          height={300}
                           loading="lazy"
-                          className="w-full h-24 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-32 sm:h-48 lg:h-56 object-cover"
                         />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <Camera className="w-6 h-6 sm:w-12 sm:h-12 text-white" />
-                        </div>
-                        <Badge className="absolute top-1 sm:top-3 left-1 sm:left-3 bg-red-800 text-white text-[10px] sm:text-xs">
-                          {album.category}
-                        </Badge>
                       </div>
-                      <CardHeader className="p-2 sm:pb-2 sm:pt-4">
-                        <CardTitle className="text-xs sm:text-lg line-clamp-1">{album.title}</CardTitle>
-                        <CardDescription className="flex items-center text-[10px] sm:text-sm text-gray-600">
-                          <Camera className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                          {album.images} photos
-                        </CardDescription>
-                      </CardHeader>
-                    </Card>
-                  )
-                })}
-              </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <Button
-              variant="outline"
-              size="icon"
+            {/* Navigation Buttons */}
+            <button
+              onClick={prevGallery}
+              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              aria-label="Previous gallery"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+            </button>
+
+            <button
               onClick={nextGallery}
-              className="absolute right-0 z-10 rounded-full border-red-800 text-red-800 hover:bg-red-50 bg-white"
+              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               aria-label="Next gallery"
             >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
+              <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              {galleryPages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setGalleryIndex(index)}
+                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
+                    index === galleryIndex ? "bg-white" : "bg-white/50"
+                  }`}
+                  aria-label={`Go to gallery page ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
