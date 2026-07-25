@@ -1,269 +1,146 @@
 "use client"
 
-import { useState } from "react"
 import { Header } from "@/components/shared/header"
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle2, ShieldCheck, Sparkles } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Phone, Mail, Users, Heart, Award, CheckCircle2, Sparkles } from "lucide-react"
 
 export default function MembershipPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    membershipType: "",
-    familySize: "",
-    message: "",
-  })
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!formData.name || !formData.email || !formData.phone || !formData.membershipType) {
-      alert("Please fill in all required fields.")
-      return
-    }
-    setSubmitted(true)
-  }
-
-  const membershipTiers = [
-    {
-      name: "Annual Family Membership",
-      price: "₹3,000 / year",
-      description: "Perfect for families wanting to actively participate in all annual events and cultural programs.",
-      benefits: [
-        "Free entry for family to Durga Puja, Kali Puja, & Saraswati Puja",
-        "Access to community Bhog and festive lunches",
-        "Participation in cultural performances and rehearsals",
-        "Invitation to general body meetings",
-      ],
-      popular: true,
-    },
-    {
-      name: "Life Membership",
-      price: "₹25,000 (One-time)",
-      description: "For long-term community members seeking a permanent role in preserving Bengali culture.",
-      benefits: [
-        "All benefits of Annual Membership for lifetime",
-        "Priority seating at major cultural events",
-        "Special recognition in annual journals and souvenirs",
-        "Voting rights in organizational elections",
-      ],
-      popular: false,
-    },
-    {
-      name: "Patron Membership",
-      price: "₹50,000+ (One-time)",
-      description: "For individuals wanting to extend extraordinary philanthropic support to our cultural mission.",
-      benefits: [
-        "All benefits of Lifetime Membership",
-        "Exclusive invitation to Patron Dinners with guest artists",
-        "Prime logo/name placement on promotional materials",
-        "Lifetime exemption from special event charges",
-      ],
-      popular: false,
-    },
+  const upcomingBenefits = [
+    "Entry for your family to all major cultural festivals (Durga Puja, Kali Puja, Saraswati Puja)",
+    "Access to traditional community Bhog and festive gatherings",
+    "Opportunities for youth and adults to participate in cultural performances & workshops",
+    "Voting rights and active involvement in organizational decision-making",
+    "Special invitations to annual celebrations, picnics, and social welfare programs",
   ]
 
   return (
-    <div className="min-h-screen bg-cream-50">
-      <Header />
-      <Navbar />
+    <div className="min-h-screen bg-gradient-to-b from-amber-50/40 via-red-50/30 to-orange-50/40 flex flex-col justify-between">
+      <div>
+        <Header />
+        <Navbar />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-50 to-orange-50 py-8 sm:py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <Badge className="bg-red-100 text-red-800 mb-4 text-xs sm:text-sm">Join Our Cultural Family</Badge>
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Membership Application</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Become a valued member of BARNA. Connect with Bengali heritage, participate in our grand celebrations, and build lifelong bonds with over 500 families.
-          </p>
-        </div>
-      </section>
+        {/* Rich Festive Hero Section */}
+        <section className="relative overflow-hidden bg-gradient-to-r from-red-900 via-red-800 to-amber-900 text-white py-12 sm:py-20 shadow-inner">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-400/20 via-transparent to-transparent pointer-events-none" />
+          <div className="max-w-4xl mx-auto px-4 text-center relative z-10 space-y-4">
+            <Badge className="bg-amber-400 text-red-950 hover:bg-amber-300 font-semibold px-3 py-1 text-xs sm:text-sm shadow-sm inline-flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" />
+              Join Our Cultural Family
+            </Badge>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-amber-100 drop-shadow-sm">
+              Membership Plans Coming Soon
+            </h1>
+            <p className="text-base sm:text-xl text-red-100 max-w-2xl mx-auto font-light leading-relaxed">
+              We are updating our membership tiers and online registration process. Full details will be unveiled here soon!
+            </p>
+          </div>
+        </section>
 
-      {/* Main Content */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Main Content Section */}
+        <section className="py-12 sm:py-16">
+          <div className="max-w-4xl mx-auto px-4 space-y-10 sm:space-y-12">
             
-            {/* Membership Tiers column */}
-            <div className="lg:col-span-2 space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Select a Membership Tier</h2>
-              <div className="grid grid-cols-1 gap-6">
-                {membershipTiers.map((tier, index) => (
-                  <Card 
-                    key={index} 
-                    className={`relative border-2 transition-all ${
-                      tier.popular 
-                        ? "border-sindoor bg-sindoor-light/20 shadow-md" 
-                        : "border-gray-200 bg-white hover:border-sindoor/30"
-                    }`}
+            {/* Contact Callout Box */}
+            <Card className="border-2 border-amber-300/80 bg-gradient-to-br from-amber-500/10 via-red-500/10 to-orange-500/10 shadow-lg rounded-2xl overflow-hidden backdrop-blur-sm">
+              <CardContent className="p-8 sm:p-10 text-center space-y-5">
+                <div className="w-14 h-14 bg-gradient-to-br from-red-800 to-amber-700 text-amber-200 rounded-full flex items-center justify-center mx-auto shadow-md">
+                  <Phone className="w-7 h-7" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-red-950">
+                  Need Immediate Membership Assistance?
+                </h2>
+                <p className="text-base text-gray-700 max-w-xl mx-auto leading-relaxed">
+                  If you have questions regarding current memberships, renewals, or upcoming registrations, feel free to contact our team directly.
+                </p>
+                <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                  <a
+                    href="tel:+918045678901"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-red-800 hover:bg-red-900 text-white font-medium text-base shadow-md transition-transform hover:-translate-y-0.5"
                   >
-                    {tier.popular && (
-                      <Badge className="absolute top-4 right-4 bg-sindoor text-white flex items-center gap-1">
-                        <Sparkles className="w-3 h-3" /> Most Popular
-                      </Badge>
-                    )}
-                    <CardHeader>
-                      <CardTitle className="text-xl text-gray-900">{tier.name}</CardTitle>
-                      <div className="text-2xl font-bold text-sindoor mt-2">{tier.price}</div>
-                      <CardDescription className="mt-2 text-sm">{tier.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <h4 className="font-semibold text-xs text-gray-900 uppercase tracking-wider mb-2">Key Benefits:</h4>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {tier.benefits.map((benefit, bIndex) => (
-                          <li key={bIndex} className="flex items-start gap-2 text-sm text-gray-700">
-                            <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                            <span>{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                ))}
+                    <Phone className="w-5 h-5 text-amber-300" />
+                    +91 80 4567 8901
+                  </a>
+                  <a
+                    href="mailto:contact@barna.org"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-medium text-base shadow-md transition-transform hover:-translate-y-0.5"
+                  >
+                    <Mail className="w-5 h-5 text-amber-200" />
+                    contact@barna.org
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Why Join BARNA - Feature Cards */}
+            <div className="space-y-8">
+              <div className="text-center space-y-2">
+                <h3 className="text-2xl sm:text-3xl font-bold text-red-950">Member Community Benefits</h3>
+                <p className="text-gray-600 text-base">
+                  Discover what membership with BARNA offers to Bengali families across the region:
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <Card className="border-t-4 border-t-red-700 border-x border-b border-red-100 bg-white/90 hover:bg-white shadow-md hover:shadow-xl transition-all">
+                  <CardContent className="p-6 text-center space-y-3">
+                    <div className="w-12 h-12 bg-red-100 text-red-800 rounded-xl flex items-center justify-center mx-auto">
+                      <Heart className="w-6 h-6" />
+                    </div>
+                    <h4 className="font-bold text-lg text-gray-900">Cultural Preservation</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Stay connected with authentic Bengali traditions, heritage festivals, literature, and art.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-t-4 border-t-amber-600 border-x border-b border-amber-100 bg-white/90 hover:bg-white shadow-md hover:shadow-xl transition-all">
+                  <CardContent className="p-6 text-center space-y-3">
+                    <div className="w-12 h-12 bg-amber-100 text-amber-800 rounded-xl flex items-center justify-center mx-auto">
+                      <Users className="w-6 h-6" />
+                    </div>
+                    <h4 className="font-bold text-lg text-gray-900">Vibrant Community</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Connect and celebrate alongside over 500 Bengali families in a warm, welcoming environment.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-t-4 border-t-orange-600 border-x border-b border-orange-100 bg-white/90 hover:bg-white shadow-md hover:shadow-xl transition-all">
+                  <CardContent className="p-6 text-center space-y-3">
+                    <div className="w-12 h-12 bg-orange-100 text-orange-800 rounded-xl flex items-center justify-center mx-auto">
+                      <Award className="w-6 h-6" />
+                    </div>
+                    <h4 className="font-bold text-lg text-gray-900">Grand Events</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Participate in vibrant annual Pujas, musical concerts, youth programs, and social welfare.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* What to Expect Card */}
+              <div className="bg-gradient-to-r from-red-900 via-red-800 to-amber-900 text-white rounded-2xl p-8 sm:p-10 shadow-xl space-y-6">
+                <div className="flex items-center gap-3">
+                  <Sparkles className="w-6 h-6 text-amber-400 flex-shrink-0" />
+                  <h4 className="font-bold text-xl sm:text-2xl text-amber-100">What to expect with BARNA Membership</h4>
+                </div>
+                <ul className="grid grid-cols-1 gap-3.5">
+                  {upcomingBenefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start gap-3 text-base text-red-100">
+                      <CheckCircle2 className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Form Column */}
-            <div>
-              <Card className="sticky top-24 border-2 border-festive-orange/30 shadow-lg">
-                <CardHeader className="bg-sindoor text-white rounded-t-lg">
-                  <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                    <ShieldCheck className="w-5 h-5" /> Interest Form
-                  </CardTitle>
-                  <CardDescription className="text-red-100 text-xs sm:text-sm">
-                    Submit your details and our team will get in touch with you shortly.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  {submitted ? (
-                    <div className="text-center py-12 space-y-4">
-                      <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
-                        <CheckCircle2 className="w-10 h-10" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900">Thank You!</h3>
-                      <p className="text-sm text-gray-600">
-                        Your membership application has been received. Our executive committee will review it and contact you within 48 hours.
-                      </p>
-                      <Button 
-                        onClick={() => {
-                          setSubmitted(false)
-                          setFormData({
-                            name: "",
-                            email: "",
-                            phone: "",
-                            membershipType: "",
-                            familySize: "",
-                            message: "",
-                          })
-                        }}
-                        className="w-full bg-sindoor hover:bg-sindoor-hover text-white mt-4"
-                      >
-                        Submit Another Form
-                      </Button>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Full Name <span className="text-red-500">*</span></Label>
-                        <Input 
-                          id="name" 
-                          placeholder="Your Name" 
-                          required 
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email Address <span className="text-red-500">*</span></Label>
-                        <Input 
-                          id="email" 
-                          type="email" 
-                          placeholder="your.email@example.com" 
-                          required 
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number <span className="text-red-500">*</span></Label>
-                        <Input 
-                          id="phone" 
-                          placeholder="10-digit mobile number" 
-                          required 
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="tier">Membership Tier <span className="text-red-500">*</span></Label>
-                        <Select 
-                          value={formData.membershipType} 
-                          onValueChange={(val) => setFormData({ ...formData, membershipType: val })}
-                        >
-                          <SelectTrigger id="tier">
-                            <SelectValue placeholder="Select Tier" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="annual">Annual Family (₹3,000/yr)</SelectItem>
-                            <SelectItem value="life">Life Membership (₹25,000)</SelectItem>
-                            <SelectItem value="patron">Patron Membership (₹50,000+)</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="size">Family Size</Label>
-                        <Select 
-                          value={formData.familySize} 
-                          onValueChange={(val) => setFormData({ ...formData, familySize: val })}
-                        >
-                          <SelectTrigger id="size">
-                            <SelectValue placeholder="Number of Members" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="1">1 (Individual)</SelectItem>
-                            <SelectItem value="2">2 Members</SelectItem>
-                            <SelectItem value="3-4">3 - 4 Members</SelectItem>
-                            <SelectItem value="5+">5+ Members</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="message">Message / Notes (Optional)</Label>
-                        <Textarea 
-                          id="message" 
-                          placeholder="Tell us a bit about your family or ask any questions." 
-                          rows={3}
-                          value={formData.message}
-                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        />
-                      </div>
-
-                      <Button type="submit" className="w-full bg-sindoor hover:bg-sindoor-hover text-white font-medium py-3 rounded-lg">
-                        Submit Application
-                      </Button>
-                    </form>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <Footer />
     </div>
