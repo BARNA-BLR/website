@@ -12,12 +12,25 @@ import { Footer } from "@/components/shared/footer"
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [galleryIndex, setGalleryIndex] = useState(0)
   const images = [
     { src: "/images/durga_puja_hero.jpg", alt: "Durga Puja festival" },
     { src: "/images/community_gathering.jpg", alt: "Community gathering" },
     { src: "/images/cultural_performance.jpg", alt: "Traditional dance performance" },
     { src: "/images/saraswati_puja.jpg", alt: "Saraswati Puja" },
     { src: "/images/kali_puja.jpg", alt: "Kali Puja celebration" },
+  ]
+
+  const albums = [
+    { title: "Durga Puja 2023", category: "Festival", images: 45, src: "/images/durga_puja_hero.jpg" },
+    { title: "Rabindra Jayanti Celebration", category: "Cultural", images: 32, src: "/images/cultural_performance.jpg" },
+    { title: "Bengali New Year", category: "Festival", images: 28, src: "/images/community_gathering.jpg" },
+    { title: "Youth Cultural Program", category: "Performance", images: 38, src: "/images/cultural_performance.jpg" },
+    { title: "Community Picnic", category: "Social", images: 52, src: "/images/community_gathering.jpg" },
+    { title: "Language Workshop", category: "Educational", images: 24, src: "/images/saraswati_puja.jpg" },
+    { title: "Kali Puja 2023", category: "Festival", images: 41, src: "/images/kali_puja.jpg" },
+    { title: "Senior Citizens Meet", category: "Social", images: 19, src: "/images/community_gathering.jpg" },
+    { title: "Dance Competition", category: "Performance", images: 35, src: "/images/cultural_performance.jpg" },
   ]
 
   useEffect(() => {
@@ -33,6 +46,14 @@ export default function HomePage() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
+  }
+
+  const nextGallery = () => {
+    setGalleryIndex((prev) => (prev + 1) % albums.length)
+  }
+
+  const prevGallery = () => {
+    setGalleryIndex((prev) => (prev - 1 + albums.length) % albums.length)
   }
 
   return (
@@ -76,6 +97,7 @@ export default function HomePage() {
                         alt={image.alt}
                         width={600}
                         height={400}
+                        loading="lazy"
                         className="w-full h-[250px] sm:h-[300px] lg:h-[400px] object-cover"
                       />
                     </div>
@@ -348,44 +370,61 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              { title: "Durga Puja 2023", category: "Festival", images: 45, src: "/images/durga_puja_hero.jpg" },
-              { title: "Rabindra Jayanti Celebration", category: "Cultural", images: 32, src: "/images/cultural_performance.jpg" },
-              { title: "Bengali New Year", category: "Festival", images: 28, src: "/images/community_gathering.jpg" },
-              { title: "Youth Cultural Program", category: "Performance", images: 38, src: "/images/cultural_performance.jpg" },
-              { title: "Community Picnic", category: "Social", images: 52, src: "/images/community_gathering.jpg" },
-              { title: "Language Workshop", category: "Educational", images: 24, src: "/images/saraswati_puja.jpg" },
-              { title: "Kali Puja 2023", category: "Festival", images: 41, src: "/images/kali_puja.jpg" },
-              { title: "Senior Citizens Meet", category: "Social", images: 19, src: "/images/community_gathering.jpg" },
-              { title: "Dance Competition", category: "Performance", images: 35, src: "/images/cultural_performance.jpg" },
-            ].map((album, index) => (
-              <Card key={index} className="group cursor-pointer hover:shadow-lg transition-all duration-300">
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={album.src}
-                    alt={album.title}
-                    width={400}
-                    height={250}
-                    loading="lazy"
-                    className="w-full h-36 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Camera className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
-                  </div>
-                  <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-red-800 text-white text-xs">
-                    {album.category}
-                  </Badge>
-                </div>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base sm:text-lg line-clamp-2">{album.title}</CardTitle>
-                  <CardDescription className="flex items-center text-xs sm:text-sm text-gray-600">
-                    <Camera className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                    {album.images} photos
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
+          <div className="relative flex items-center px-8 sm:px-12">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevGallery}
+              className="absolute left-0 z-10 rounded-full border-red-800 text-red-800 hover:bg-red-50 bg-white"
+              aria-label="Previous gallery"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+
+            <div className="w-full overflow-hidden">
+              <div className="grid grid-cols-3 gap-2 sm:gap-6">
+                {[0, 1, 2].map((offset) => {
+                  const album = albums[(galleryIndex + offset) % albums.length]
+                  return (
+                    <Card key={album.title} className="group cursor-pointer hover:shadow-lg transition-all duration-300">
+                      <div className="relative overflow-hidden">
+                        <Image
+                          src={album.src}
+                          alt={album.title}
+                          width={400}
+                          height={250}
+                          loading="lazy"
+                          className="w-full h-24 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <Camera className="w-6 h-6 sm:w-12 sm:h-12 text-white" />
+                        </div>
+                        <Badge className="absolute top-1 sm:top-3 left-1 sm:left-3 bg-red-800 text-white text-[10px] sm:text-xs">
+                          {album.category}
+                        </Badge>
+                      </div>
+                      <CardHeader className="p-2 sm:pb-2 sm:pt-4">
+                        <CardTitle className="text-xs sm:text-lg line-clamp-1">{album.title}</CardTitle>
+                        <CardDescription className="flex items-center text-[10px] sm:text-sm text-gray-600">
+                          <Camera className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                          {album.images} photos
+                        </CardDescription>
+                      </CardHeader>
+                    </Card>
+                  )
+                })}
+              </div>
+            </div>
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextGallery}
+              className="absolute right-0 z-10 rounded-full border-red-800 text-red-800 hover:bg-red-50 bg-white"
+              aria-label="Next gallery"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
