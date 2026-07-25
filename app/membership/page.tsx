@@ -64,11 +64,11 @@ export default function MembershipPage() {
                     +91 80 4567 8901
                   </a>
                   <a
-                    href="mailto:contact@barna.org"
+                    href="mailto:contact@barna.co.in"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-medium text-base shadow-md transition-transform hover:-translate-y-0.5"
                   >
                     <Mail className="w-5 h-5 text-amber-200" />
-                    contact@barna.org
+                    contact@barna.co.in
                   </a>
                 </div>
               </CardContent>

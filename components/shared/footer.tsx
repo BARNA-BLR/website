@@ -66,7 +66,7 @@ export function Footer() {
               </div>
               <div className="flex items-center justify-center">
                 <Mail className="w-4 h-4 mr-2 flex-shrink-0" />
-                <span className="break-all">info@barna.org</span>
+                <span className="break-all">contact@barna.co.in</span>
               </div>
             </div>
           </div>

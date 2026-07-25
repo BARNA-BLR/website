@@ -65,7 +65,7 @@ export function Header() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1">
                 <Mail className="w-4 h-4" />
-                <span>info@barna.org</span>
+                <span>contact@barna.co.in</span>
               </div>
               <div className="flex items-center space-x-1">
                 <Phone className="w-4 h-4" />
@@ -137,7 +137,7 @@ export function Header() {
                   </Link>
                 </div>
                 <div className="text-center text-sm text-gray-600 space-y-1">
-                  <div>info@barna.org</div>
+                  <div>contact@barna.co.in</div>
                   <div>+91 80 4567 8901</div>
                 </div>
               </div>
