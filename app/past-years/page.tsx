@@ -4,134 +4,110 @@ import { Footer } from "@/components/shared/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Users, Award, Camera, Download, Eye } from "lucide-react"
+import { Award, Camera } from "lucide-react"
 import Image from "next/image"
+import { PastYearsGallery } from "@/components/past-years-gallery"
+
+const pastEvents = [
+  {
+    year: "2023",
+    title: "Durga Puja 2023 - Golden Jubilee Special",
+    description:
+      "A magnificent celebration featuring traditional pandal decorations, cultural performances, and community feast attended by over 800 people.",
+    category: "Festival",
+    attendees: 800,
+    photos: 156,
+    highlights: [
+      "Traditional Dhak performances",
+      "Children's cultural program",
+      "Community feast for 1000+",
+      "Award ceremony",
+    ],
+  },
+  {
+    year: "2023",
+    title: "Rabindra Jayanti Celebration",
+    description:
+      "An evening dedicated to Rabindranath Tagore's works with poetry recitations, songs, and dance performances by community artists.",
+    category: "Cultural",
+    attendees: 250,
+    photos: 89,
+    highlights: [
+      "Poetry recitation competition",
+      "Rabindra Sangeet performances",
+      "Art exhibition",
+      "Literary discussions",
+    ],
+  },
+  {
+    year: "2022",
+    title: "Durga Puja 2022 - Post-Pandemic Revival",
+    description:
+      "Our triumphant return to full-scale celebrations after COVID-19, marking resilience and community spirit.",
+    category: "Festival",
+    attendees: 650,
+    photos: 134,
+    highlights: [
+      "Health safety protocols",
+      "Hybrid virtual participation",
+      "Community solidarity",
+      "Thanksgiving ceremonies",
+    ],
+  },
+  {
+    year: "2022",
+    title: "Bengali New Year (Poila Boishakh)",
+    description:
+      "Traditional New Year celebration with cultural programs, traditional food, and community bonding activities.",
+    category: "Cultural",
+    attendees: 300,
+    photos: 67,
+    highlights: ["Traditional Bengali breakfast", "Folk dance performances", "Alpana competition", "Cultural quiz"],
+  },
+  {
+    year: "2021",
+    title: "Virtual Durga Puja 2021",
+    description:
+      "Innovative virtual celebration during pandemic, connecting Bengali families worldwide through digital platforms.",
+    category: "Festival",
+    attendees: 1200,
+    photos: 45,
+    highlights: ["Global virtual participation", "Online cultural programs", "Digital pandal tour", "Virtual aarti"],
+  },
+  {
+    year: "2021",
+    title: "Community Support Initiative",
+    description:
+      "COVID-19 relief efforts providing food, medical supplies, and emotional support to affected community members.",
+    category: "Welfare",
+    attendees: 150,
+    photos: 78,
+    highlights: ["Food distribution", "Medical aid", "Mental health support", "Volunteer coordination"],
+  },
+  {
+    year: "2020",
+    title: "35th Anniversary Celebration",
+    description:
+      "Milestone celebration honoring 35 years of cultural preservation and community service with special recognition ceremonies.",
+    category: "Milestone",
+    attendees: 450,
+    photos: 112,
+    highlights: ["Founder recognition", "Historical exhibition", "Legacy awards", "Time capsule ceremony"],
+  },
+  {
+    year: "2019",
+    title: "Durga Puja 2019 - Eco-Friendly Initiative",
+    description:
+      "Environmentally conscious celebration featuring eco-friendly decorations and sustainable practices.",
+    category: "Festival",
+    attendees: 750,
+    photos: 189,
+    highlights: ["Eco-friendly pandal", "Sustainable decorations", "Waste management", "Environmental awareness"],
+  },
+]
+
 
 export default function PastYearsPage() {
-  const pastEvents = [
-    {
-      year: "2023",
-      title: "Durga Puja 2023 - Golden Jubilee Special",
-      description:
-        "A magnificent celebration featuring traditional pandal decorations, cultural performances, and community feast attended by over 800 people.",
-      category: "Festival",
-      attendees: 800,
-      photos: 156,
-      highlights: [
-        "Traditional Dhak performances",
-        "Children's cultural program",
-        "Community feast for 1000+",
-        "Award ceremony",
-      ],
-    },
-    {
-      year: "2023",
-      title: "Rabindra Jayanti Celebration",
-      description:
-        "An evening dedicated to Rabindranath Tagore's works with poetry recitations, songs, and dance performances by community artists.",
-      category: "Cultural",
-      attendees: 250,
-      photos: 89,
-      highlights: [
-        "Poetry recitation competition",
-        "Rabindra Sangeet performances",
-        "Art exhibition",
-        "Literary discussions",
-      ],
-    },
-    {
-      year: "2022",
-      title: "Durga Puja 2022 - Post-Pandemic Revival",
-      description:
-        "Our triumphant return to full-scale celebrations after COVID-19, marking resilience and community spirit.",
-      category: "Festival",
-      attendees: 650,
-      photos: 134,
-      highlights: [
-        "Health safety protocols",
-        "Hybrid virtual participation",
-        "Community solidarity",
-        "Thanksgiving ceremonies",
-      ],
-    },
-    {
-      year: "2022",
-      title: "Bengali New Year (Poila Boishakh)",
-      description:
-        "Traditional New Year celebration with cultural programs, traditional food, and community bonding activities.",
-      category: "Cultural",
-      attendees: 300,
-      photos: 67,
-      highlights: ["Traditional Bengali breakfast", "Folk dance performances", "Alpana competition", "Cultural quiz"],
-    },
-    {
-      year: "2021",
-      title: "Virtual Durga Puja 2021",
-      description:
-        "Innovative virtual celebration during pandemic, connecting Bengali families worldwide through digital platforms.",
-      category: "Festival",
-      attendees: 1200,
-      photos: 45,
-      highlights: ["Global virtual participation", "Online cultural programs", "Digital pandal tour", "Virtual aarti"],
-    },
-    {
-      year: "2021",
-      title: "Community Support Initiative",
-      description:
-        "COVID-19 relief efforts providing food, medical supplies, and emotional support to affected community members.",
-      category: "Welfare",
-      attendees: 150,
-      photos: 78,
-      highlights: ["Food distribution", "Medical aid", "Mental health support", "Volunteer coordination"],
-    },
-    {
-      year: "2020",
-      title: "35th Anniversary Celebration",
-      description:
-        "Milestone celebration honoring 35 years of cultural preservation and community service with special recognition ceremonies.",
-      category: "Milestone",
-      attendees: 450,
-      photos: 112,
-      highlights: ["Founder recognition", "Historical exhibition", "Legacy awards", "Time capsule ceremony"],
-    },
-    {
-      year: "2019",
-      title: "Durga Puja 2019 - Eco-Friendly Initiative",
-      description:
-        "Environmentally conscious celebration featuring eco-friendly decorations and sustainable practices.",
-      category: "Festival",
-      attendees: 750,
-      photos: 189,
-      highlights: ["Eco-friendly pandal", "Sustainable decorations", "Waste management", "Environmental awareness"],
-    },
-  ]
-
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      Festival: "bg-purple-100 text-purple-800",
-      Cultural: "bg-blue-100 text-blue-800",
-      Welfare: "bg-green-100 text-green-800",
-      Milestone: "bg-yellow-100 text-yellow-800",
-      Educational: "bg-indigo-100 text-indigo-800",
-    }
-    return colors[category as keyof typeof colors] || "bg-gray-100 text-gray-800"
-  }
-
-  const getEventImage = (category: string, title: string) => {
-    if (category === "Festival") {
-      if (title.toLowerCase().includes("kali")) return "/images/kali_puja.jpg"
-      if (title.toLowerCase().includes("saraswati")) return "/images/saraswati_puja.jpg"
-      return "/images/durga_puja_hero.jpg"
-    }
-    if (category === "Welfare") {
-      return "/images/csr_activity.jpg"
-    }
-    if (category === "Cultural") {
-      return "/images/cultural_performance.jpg"
-    }
-    return "/images/community_gathering.jpg"
-  }
-
   return (
     <div className="min-h-screen bg-cream-50">
       <Header />
@@ -186,85 +162,9 @@ export default function PastYearsPage() {
       {/* Past Events Grid */}
       <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {pastEvents.map((event, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 group">
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={getEventImage(event.category, event.title)}
-                    alt={event.title}
-                    width={400}
-                    height={250}
-                    loading="lazy"
-                    className="w-full h-36 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="flex space-x-2 sm:space-x-4">
-                      <Button
-                        size="sm"
-                        className="bg-white text-black hover:bg-gray-100 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
-                      >
-                        <Eye className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                        View
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-white text-white hover:bg-white hover:text-black bg-transparent text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
-                      >
-                        <Download className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                        Download
-                      </Button>
-                    </div>
-                  </div>
-                  <Badge
-                    className={`absolute top-2 sm:top-3 left-2 sm:left-3 text-xs ${getCategoryColor(event.category)}`}
-                  >
-                    {event.category}
-                  </Badge>
-                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/70 text-white px-2 py-1 rounded text-xs">
-                    {event.year}
-                  </div>
-                </div>
-
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-base sm:text-lg line-clamp-2">{event.title}</CardTitle>
-                  <CardDescription className="line-clamp-3 text-sm">{event.description}</CardDescription>
-                </CardHeader>
-
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center text-xs sm:text-sm text-gray-600">
-                      <div className="flex items-center">
-                        <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                        {event.attendees} attendees
-                      </div>
-                      <div className="flex items-center">
-                        <Camera className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                        {event.photos} photos
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="font-medium text-xs sm:text-sm text-gray-900 mb-2">Event Highlights:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {event.highlights.slice(0, 3).map((highlight, idx) => (
-                          <Badge key={idx} variant="secondary" className="text-xs">
-                            {highlight}
-                          </Badge>
-                        ))}
-                        {event.highlights.length > 3 && (
-                          <Badge variant="secondary" className="text-xs">
-                            +{event.highlights.length - 3} more
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <PastYearsGallery
+            events={pastEvents}
+          />
         </div>
       </section>
 
