@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useCallback } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -74,17 +74,17 @@ export function PastYearsGallery({
     ? getPlaceholderImages(selectedEvent, Math.min(selectedEventData?.photos ?? 0, 12))
     : []
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     if (viewingImage !== null && viewingImage > 0) {
       setViewingImage(viewingImage - 1)
     }
-  }
+  }, [viewingImage])
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (viewingImage !== null && viewingImage < galleryImages.length - 1) {
       setViewingImage(viewingImage + 1)
     }
-  }
+  }, [viewingImage, galleryImages.length])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (viewingImage !== null) {
@@ -92,6 +92,28 @@ export function PastYearsGallery({
       if (e.key === "ArrowRight") handleNext()
       if (e.key === "Escape") setViewingImage(null)
     }
+  }
+
+  // Touch swipe support for mobile
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current
+    // Only trigger if horizontal swipe is dominant and significant
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX > 0) handlePrev()
+      else handleNext()
+    }
+    touchStartX.current = null
+    touchStartY.current = null
   }
 
   return (
@@ -193,53 +215,53 @@ export function PastYearsGallery({
         }}
       >
         <DialogContent
-          className="max-w-4xl w-[95vw] max-h-[90vh] overflow-y-auto p-0"
+          className="max-w-4xl w-[95vw] sm:w-[90vw] max-h-[90vh] overflow-y-auto p-0"
           onKeyDown={handleKeyDown}
         >
           {selectedEventData && (
             <>
-              <DialogHeader className="p-6 pb-2">
+              <DialogHeader className="px-4 pt-4 pb-2 sm:px-6 sm:pt-6 sm:pb-2 pr-10">
                 <div className="flex items-center gap-2 mb-1">
                   <Badge className={`text-xs ${getCategoryColor(selectedEventData.category)}`}>
                     {selectedEventData.category}
                   </Badge>
                   <span className="text-xs text-gray-500">{selectedEventData.year}</span>
                 </div>
-                <DialogTitle className="text-xl sm:text-2xl">
+                <DialogTitle className="text-lg sm:text-2xl leading-tight">
                   {selectedEventData.title}
                 </DialogTitle>
-                <DialogDescription className="text-sm text-gray-600">
+                <DialogDescription className="text-xs sm:text-sm text-gray-600">
                   {selectedEventData.description}
                 </DialogDescription>
-                <div className="flex items-center gap-4 text-sm text-gray-500 pt-1">
+                <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500 pt-1">
                   <span className="flex items-center gap-1">
-                    <Camera className="w-4 h-4" />
+                    <Camera className="w-3 h-3 sm:w-4 sm:h-4" />
                     {galleryImages.length} photos
                   </span>
                   <span className="flex items-center gap-1">
-                    <Users className="w-4 h-4" />
+                    <Users className="w-3 h-3 sm:w-4 sm:h-4" />
                     {selectedEventData.attendees} attendees
                   </span>
                 </div>
               </DialogHeader>
 
-              <div className="px-6 pb-6">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              <div className="px-3 pb-4 sm:px-6 sm:pb-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
                   {galleryImages.map((image, idx) => (
                     <button
                       key={image.id}
-                      className="group/thumb relative aspect-square overflow-hidden rounded-lg border border-gray-200 hover:border-red-400 transition-all duration-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                      className="group/thumb relative aspect-square overflow-hidden rounded-md sm:rounded-lg border border-gray-200 hover:border-red-400 active:border-red-500 transition-all duration-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 sm:focus:ring-offset-2"
                       onClick={() => setViewingImage(idx)}
                     >
                       <Image
                         src={image.src}
                         alt={image.alt}
                         fill
-                        sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 22vw"
+                        sizes="(max-width: 640px) 42vw, (max-width: 768px) 28vw, 20vw"
                         className="object-cover group-hover/thumb:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover/thumb:bg-black/30 transition-colors duration-200 flex items-center justify-center">
-                        <Eye className="w-5 h-5 text-white opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-200" />
+                        <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-white opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-200" />
                       </div>
                     </button>
                   ))}
@@ -253,33 +275,35 @@ export function PastYearsGallery({
       {/* Full Image Viewer Overlay */}
       {viewingImage !== null && (
         <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center touch-none"
           onClick={() => setViewingImage(null)}
           onKeyDown={handleKeyDown}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           tabIndex={0}
           role="dialog"
           aria-label="Image viewer"
         >
           {/* Close button */}
           <button
-            className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 active:bg-white/20"
             onClick={(e) => {
               e.stopPropagation()
               setViewingImage(null)
             }}
             aria-label="Close image viewer"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
 
           {/* Image counter */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/70 text-sm bg-black/50 px-3 py-1 rounded-full">
+          <div className="absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 text-white/70 text-xs sm:text-sm bg-black/50 px-2.5 py-1 sm:px-3 rounded-full">
             {viewingImage + 1} / {galleryImages.length}
           </div>
 
           {/* Previous button */}
           <button
-            className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 ${
+            className={`absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-10 text-white/70 hover:text-white transition-colors p-1.5 sm:p-2 rounded-full hover:bg-white/10 active:bg-white/20 ${
               viewingImage === 0 ? "opacity-30 pointer-events-none" : ""
             }`}
             onClick={(e) => {
@@ -288,27 +312,27 @@ export function PastYearsGallery({
             }}
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-8 h-8" />
+            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
 
           {/* Image */}
           <div
-            className="relative w-[90vw] h-[80vh] max-w-5xl"
+            className="relative w-[85vw] h-[70vh] sm:w-[90vw] sm:h-[80vh] max-w-5xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={galleryImages[viewingImage]?.src ?? ""}
               alt={galleryImages[viewingImage]?.alt ?? ""}
               fill
-              sizes="90vw"
-              className="object-contain"
+              sizes="(max-width: 640px) 85vw, 90vw"
+              className="object-contain select-none pointer-events-none"
               priority
             />
           </div>
 
           {/* Next button */}
           <button
-            className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 ${
+            className={`absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-10 text-white/70 hover:text-white transition-colors p-1.5 sm:p-2 rounded-full hover:bg-white/10 active:bg-white/20 ${
               viewingImage === galleryImages.length - 1 ? "opacity-30 pointer-events-none" : ""
             }`}
             onClick={(e) => {
@@ -317,12 +341,12 @@ export function PastYearsGallery({
             }}
             aria-label="Next image"
           >
-            <ChevronRight className="w-8 h-8" />
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
 
           {/* Event title */}
           {selectedEventData && (
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm bg-black/50 px-4 py-2 rounded-full max-w-[80vw] truncate">
+            <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-xs sm:text-sm bg-black/50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full max-w-[85vw] sm:max-w-[80vw] truncate">
               {selectedEventData.title}
             </div>
           )}
