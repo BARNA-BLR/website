@@ -9,6 +9,7 @@ import Image from "next/image"
 import { Header } from "@/components/shared/header"
 import { Navbar } from "@/components/shared/navbar"
 import { Footer } from "@/components/shared/footer"
+import Link from "next/link"
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -449,14 +450,15 @@ export default function HomePage() {
             community and the richness of our traditions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-red-800 hover:bg-red-50 px-6 sm:px-8 py-3 w-full sm:w-auto">
-              Apply for Membership
+            <Button asChild className="bg-white text-red-800 hover:bg-red-50 px-6 sm:px-8 py-3 w-full sm:w-auto">
+              <Link href="/membership">Apply for Membership</Link>
             </Button>
             <Button
+              asChild
               variant="outline"
               className="border-white text-white hover:bg-red-700 px-6 sm:px-8 py-3 bg-transparent w-full sm:w-auto"
             >
-              Learn More About Us
+              <Link href="/about">Learn More About Us</Link>
             </Button>
           </div>
         </div>
