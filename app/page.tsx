@@ -15,23 +15,21 @@ export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [galleryIndex, setGalleryIndex] = useState(0)
   const images = [
-    { src: "/images/durga_puja_hero.jpg", alt: "Durga Puja festival" },
-    { src: "/images/community_gathering.jpg", alt: "Community gathering" },
-    { src: "/images/cultural_performance.jpg", alt: "Traditional dance performance" },
-    { src: "/images/saraswati_puja.jpg", alt: "Saraswati Puja" },
-    { src: "/images/kali_puja.jpg", alt: "Kali Puja celebration" },
+    { src: "/insta_images/555311902_17895476787325106_578376807082645790_n.jpg", alt: "BARNA community moment" },
+    { src: "/insta_images/556284284_17895619311325106_4112987590759282526_n.jpg", alt: "BARNA cultural celebration" },
+    { src: "/insta_images/557723658_17895862017325106_3497867176965683091_n.jpg", alt: "BARNA festival highlights" },
+    { src: "/insta_images/557825442_17895862026325106_8359077376936888501_n.jpg", alt: "BARNA community gathering" },
+    { src: "/insta_images/558291588_17895862008325106_952071076969584517_n.jpg", alt: "BARNA event snapshot" },
+    { src: "/insta_images/558821221_17895828138325106_4464549047438856278_n.jpg", alt: "BARNA cultural event" },
   ]
 
   const galleryImages = [
-    { src: "/images/durga_puja_hero.jpg", alt: "Durga Puja 2023" },
-    { src: "/images/cultural_performance.jpg", alt: "Rabindra Jayanti Celebration" },
-    { src: "/images/community_gathering.jpg", alt: "Bengali New Year" },
-    { src: "/images/cultural_performance.jpg", alt: "Youth Cultural Program" },
-    { src: "/images/community_gathering.jpg", alt: "Community Picnic" },
-    { src: "/images/saraswati_puja.jpg", alt: "Language Workshop" },
-    { src: "/images/kali_puja.jpg", alt: "Kali Puja 2023" },
-    { src: "/images/community_gathering.jpg", alt: "Senior Citizens Meet" },
-    { src: "/images/cultural_performance.jpg", alt: "Dance Competition" },
+    { src: "/insta_images/555311902_17895476787325106_578376807082645790_n.jpg", alt: "BARNA community moment" },
+    { src: "/insta_images/556284284_17895619311325106_4112987590759282526_n.jpg", alt: "BARNA cultural celebration" },
+    { src: "/insta_images/557723658_17895862017325106_3497867176965683091_n.jpg", alt: "BARNA festival highlights" },
+    { src: "/insta_images/557825442_17895862026325106_8359077376936888501_n.jpg", alt: "BARNA community gathering" },
+    { src: "/insta_images/558291588_17895862008325106_952071076969584517_n.jpg", alt: "BARNA event snapshot" },
+    { src: "/insta_images/558821221_17895828138325106_4464549047438856278_n.jpg", alt: "BARNA cultural event" },
   ]
 
   const galleryPages = Array.from(
