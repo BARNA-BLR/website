@@ -21,6 +21,7 @@ export default function HomePage() {
     { src: "/insta_images/557825442_17895862026325106_8359077376936888501_n.jpg", alt: "BARNA community gathering" },
     { src: "/insta_images/558291588_17895862008325106_952071076969584517_n.jpg", alt: "BARNA event snapshot" },
     { src: "/insta_images/558821221_17895828138325106_4464549047438856278_n.jpg", alt: "BARNA cultural event" },
+    { src: "/facebook_images/481263502_607142842094224_4597396551066784652_n.jpg", alt: "BARNA facebook highlight" },
   ]
 
   const galleryImages = [
@@ -30,6 +31,7 @@ export default function HomePage() {
     { src: "/insta_images/557825442_17895862026325106_8359077376936888501_n.jpg", alt: "BARNA community gathering" },
     { src: "/insta_images/558291588_17895862008325106_952071076969584517_n.jpg", alt: "BARNA event snapshot" },
     { src: "/insta_images/558821221_17895828138325106_4464549047438856278_n.jpg", alt: "BARNA cultural event" },
+    { src: "/facebook_images/481263502_607142842094224_4597396551066784652_n.jpg", alt: "BARNA facebook highlight" },
   ]
 
   const galleryPages = Array.from(
@@ -81,10 +83,11 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button className="bg-red-800 hover:bg-red-900 w-full sm:w-auto">Join Our Community</Button>
                 <Button
+                  asChild
                   variant="outline"
                   className="border-red-800 text-red-800 hover:bg-red-50 bg-transparent w-full sm:w-auto"
                 >
-                  Upcoming Events
+                  <a href="#upcoming-events">Upcoming Events</a>
                 </Button>
               </div>
             </div>
@@ -188,7 +191,7 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-sm sm:text-base">
-                  Poetry recitations, drama performances, music concerts, and art exhibitions showcasing Bengali talent.
+                  Poetry recitations, drama performances, and dance showcasing Bengali talent.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -209,7 +212,7 @@ export default function HomePage() {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-red-50">
+      <section id="upcoming-events" className="py-8 sm:py-12 lg:py-16 bg-red-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h3>
@@ -321,42 +324,16 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <Card className="text-center hover:shadow-lg transition-shadow">
+          <div className="flex justify-center">
+            <Card className="text-center hover:shadow-lg transition-shadow max-w-md w-full">
               <CardHeader className="pb-4">
                 <Award className="w-12 h-12 sm:w-16 sm:h-16 text-yellow-600 mx-auto mb-4" />
-                <CardTitle className="text-lg sm:text-xl">Cultural Excellence Award</CardTitle>
+                <CardTitle className="text-lg sm:text-xl">Best Durga Puja in Bangalore 2020</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-sm sm:text-base">
-                  Recognizing individuals who have made exceptional contributions to preserving and promoting Bengali
-                  arts and culture.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-4">
-                <Users className="w-12 h-12 sm:w-16 sm:h-16 text-blue-600 mx-auto mb-4" />
-                <CardTitle className="text-lg sm:text-xl">Community Service Award</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-sm sm:text-base">
-                  Honoring volunteers and members who have dedicated their time and effort to community welfare and
-                  development.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
-              <CardHeader className="pb-4">
-                <Heart className="w-12 h-12 sm:w-16 sm:h-16 text-red-600 mx-auto mb-4" />
-                <CardTitle className="text-lg sm:text-xl">Youth Achievement Award</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-sm sm:text-base">
-                  Celebrating young talents who excel in academics, arts, sports, or community service while maintaining
-                  cultural values.
+                  Awarded for organizing the best Durga Puja celebration in Bangalore in the year 2020, recognized for
+                  outstanding cultural authenticity and community spirit.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -432,8 +409,8 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-8 sm:mt-12">
-            <Button className="bg-red-800 hover:bg-red-900 text-white px-6 sm:px-8 py-3 w-full sm:w-auto">
-              View All Albums
+            <Button asChild className="bg-red-800 hover:bg-red-900 text-white px-6 sm:px-8 py-3 w-full sm:w-auto">
+              <Link href="/past-years">View All Albums</Link>
             </Button>
           </div>
         </div>

@@ -12,10 +12,10 @@ export function Footer() {
               Preserving and promoting Bengali culture and traditions since 1985.
             </p>
             <div className="flex justify-center space-x-4">
-              <Link href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://www.facebook.com/barna.vibranceofunity/" target="_blank" className="text-gray-400 hover:text-white transition-colors">
                 <Facebook className="w-5 h-5 cursor-pointer" />
               </Link>
-              <Link href="https://instagram.com" target="_blank" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://www.instagram.com/barnavibranceofunity/" target="_blank" className="text-gray-400 hover:text-white transition-colors">
                 <Instagram className="w-5 h-5 cursor-pointer" />
               </Link>
               <Link href="https://twitter.com" target="_blank" className="text-gray-400 hover:text-white transition-colors">
